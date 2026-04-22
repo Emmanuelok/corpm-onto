@@ -1,0 +1,12 @@
+PREFIX cpm: <https://w3id.org/corruptpm/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?control ?controlLabel
+WHERE {
+  ?control rdfs:subClassOf cpm:DetectiveControl .
+  FILTER (?control != cpm:DetectiveControl)
+  FILTER NOT EXISTS { ?control rdfs:subClassOf cpm:PreventiveControl }
+  OPTIONAL { ?control rdfs:label ?controlLabel }
+}
+ORDER BY ?controlLabel
+

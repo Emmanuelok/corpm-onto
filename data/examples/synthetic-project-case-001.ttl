@@ -1,0 +1,168 @@
+@prefix cpm: <https://w3id.org/corruptpm/> .
+@prefix ex: <https://w3id.org/corruptpm/examples/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:synthetic-procurement-collusion-case a cpm:SyntheticCaseStudy ;
+    rdfs:label "Synthetic procurement collusion case 001"@en ;
+    cpm:caseName "Synthetic Procurement Collusion Case 001" ;
+    cpm:description "Synthetic case study illustrating collusion and bid rigging during procurement in a public infrastructure project. This is not a real allegation." ;
+    cpm:sourceReference "Synthetic example created for repository validation and demonstration." ;
+    skos:scopeNote "Synthetic example only. Do not treat as a real-world allegation."@en .
+
+ex:project-infrastructure-001 a cpm:Project ;
+    rdfs:label "Synthetic regional bridge rehabilitation project"@en ;
+    cpm:description "Synthetic public infrastructure project used to demonstrate procurement corruption modelling." ;
+    cpm:projectValue "125000000.00"^^xsd:decimal ;
+    cpm:projectStartDate "2026-01-15"^^xsd:date ;
+    cpm:projectEndDate "2028-09-30"^^xsd:date ;
+    cpm:governedBy ex:instrument-procurement-law-001 .
+
+ex:instrument-procurement-law-001 a cpm:ProcurementLaw ;
+    rdfs:label "Synthetic procurement framework regulation"@en ;
+    cpm:description "Synthetic procurement law placeholder used for ontology examples." .
+
+ex:phase-procurement-001 a cpm:ProcurementPhase ;
+    rdfs:label "Procurement phase instance for case 001"@en .
+
+ex:stage-bid-evaluation-001 a cpm:BidEvaluationStage ;
+    rdfs:label "Bid evaluation stage instance for case 001"@en .
+
+ex:method-open-tender-001 a cpm:OpenTendering ;
+    rdfs:label "Open tendering procedure instance"@en .
+
+ex:decision-bid-evaluation-001 a cpm:BidEvaluationDecisionPoint ;
+    rdfs:label "Bid evaluation decision point for case 001"@en .
+
+ex:asset-project-information-001 a cpm:ProjectInformation ;
+    rdfs:label "Tender documentation and bid information for case 001"@en .
+
+ex:role-client-decision-001 a cpm:DecisionAuthorityRole ;
+    rdfs:label "Client decision authority role"@en .
+
+ex:role-procurement-officer-001 a cpm:DecisionAuthorityRole ;
+    rdfs:label "Procurement officer evaluation role"@en .
+
+ex:role-contractor-bidder-001 a cpm:DeliveryRole ;
+    rdfs:label "Bidder role"@en .
+
+ex:role-auditor-001 a cpm:OversightRole ;
+    rdfs:label "Independent audit role"@en .
+
+ex:actor-public-client-001 a cpm:PublicClient ;
+    rdfs:label "Synthetic public infrastructure client"@en ;
+    cpm:hasActorRole ex:role-client-decision-001 .
+
+ex:actor-procurement-officer-001 a cpm:ProcurementOfficer ;
+    rdfs:label "Synthetic procurement officer"@en ;
+    cpm:hasActorRole ex:role-procurement-officer-001 .
+
+ex:actor-contractor-alpha-001 a cpm:MainContractor ;
+    rdfs:label "Synthetic contractor Alpha"@en ;
+    cpm:hasActorRole ex:role-contractor-bidder-001 .
+
+ex:actor-contractor-beta-001 a cpm:Contractor ;
+    rdfs:label "Synthetic contractor Beta"@en ;
+    cpm:hasActorRole ex:role-contractor-bidder-001 .
+
+ex:actor-auditor-001 a cpm:Auditor ;
+    rdfs:label "Synthetic independent auditor"@en ;
+    cpm:hasActorRole ex:role-auditor-001 .
+
+ex:actor-end-user-001 a cpm:EndUser ;
+    rdfs:label "Synthetic road network end user group"@en .
+
+ex:act-bid-rigging-001 a cpm:BidRigging ;
+    rdfs:label "Synthetic bid rigging act"@en ;
+    cpm:description "Synthetic bid rigging pattern reflected in suspiciously coordinated bids." ;
+    cpm:targetsAssetOrResource ex:asset-project-information-001 ;
+    cpm:exploitsDecisionPoint ex:decision-bid-evaluation-001 .
+
+ex:act-collusion-001 a cpm:Collusion ;
+    rdfs:label "Synthetic collusion act"@en ;
+    cpm:description "Synthetic collusion pattern in which firms appear to coordinate pricing and document formatting." .
+
+ex:risk-opaque-procurement-001 a cpm:OpaqueProcurement ;
+    rdfs:label "Opaque procurement vulnerability instance"@en .
+
+ex:risk-inadequate-competition-001 a cpm:InadequateCompetition ;
+    rdfs:label "Inadequate competition vulnerability instance"@en .
+
+ex:redflag-identical-bid-documents-001 a cpm:IdenticalBidDocuments ;
+    rdfs:label "Identical bid documents instance"@en ;
+    cpm:description "Synthetic bid files share unusual formatting and repeated textual errors." ;
+    cpm:confidenceScore "0.94"^^xsd:decimal .
+
+ex:redflag-bid-prices-too-close-001 a cpm:BidPricesTooClose ;
+    rdfs:label "Bid prices too close instance"@en ;
+    cpm:description "Synthetic price spacing between bids is suspiciously narrow." ;
+    cpm:confidenceScore "0.91"^^xsd:decimal .
+
+ex:redflag-repeated-awards-001 a cpm:RepeatedContractAwardsToSameFirm ;
+    rdfs:label "Repeated awards to same firm instance"@en ;
+    cpm:description "Synthetic market history shows repeated awards to one cluster of firms." ;
+    cpm:confidenceScore "0.86"^^xsd:decimal .
+
+ex:indicator-bid-concentration-001 a cpm:BidConcentrationIndicator ;
+    rdfs:label "Bid concentration indicator instance"@en ;
+    cpm:description "Synthetic indicator showing concentration of awards among few bidders." ;
+    cpm:confidenceScore "0.88"^^xsd:decimal .
+
+ex:control-eprocurement-001 a cpm:EProcurement ;
+    rdfs:label "Synthetic e-procurement control deployment"@en ;
+    cpm:description "Synthetic deployment of a digital procurement workflow and audit log." .
+
+ex:control-independent-audit-001 a cpm:IndependentAudit ;
+    rdfs:label "Synthetic independent audit control deployment"@en ;
+    cpm:description "Synthetic audit review of procurement process and evaluation outputs." .
+
+ex:control-red-flag-analytics-001 a cpm:RedFlagAnalytics ;
+    rdfs:label "Synthetic red flag analytics deployment"@en ;
+    cpm:description "Synthetic analytics workflow for detecting collusion indicators in bids." .
+
+ex:impact-reduced-competition-001 a cpm:ReducedCompetition ;
+    rdfs:label "Reduced competition impact instance"@en .
+
+ex:impact-cost-overrun-001 a cpm:CostOverrun ;
+    rdfs:label "Cost overrun impact instance"@en .
+
+ex:impact-vfm-loss-001 a cpm:LossOfValueForMoney ;
+    rdfs:label "Loss of value for money impact instance"@en .
+
+ex:evidence-bid-comparison-001 a cpm:DocumentaryEvidence ;
+    rdfs:label "Synthetic bid comparison workbook"@en ;
+    cpm:description "Synthetic side-by-side bid comparison highlighting matching text, pricing, and metadata." ;
+    cpm:sourceReference "Synthetic evidence file created for ontology examples." .
+
+ex:evidence-bid-analysis-001 a cpm:AnalyticEvidence ;
+    rdfs:label "Synthetic bid similarity analysis"@en ;
+    cpm:description "Synthetic analytics output showing suspicious text and pricing similarity." ;
+    cpm:sourceReference "Synthetic analysis created for ontology examples." .
+
+ex:event-procurement-collusion-001 a cpm:CorruptionEvent ;
+    rdfs:label "Synthetic procurement collusion event 001"@en ;
+    cpm:description "Synthetic corruption event capturing collusion and bid rigging during bid evaluation." ;
+    cpm:occursInProject ex:project-infrastructure-001 ;
+    cpm:occursInPhase ex:phase-procurement-001 ;
+    cpm:occursInContractStage ex:stage-bid-evaluation-001 ;
+    cpm:hasCorruptAct ex:act-bid-rigging-001, ex:act-collusion-001 ;
+    cpm:involvesActor ex:actor-public-client-001, ex:actor-procurement-officer-001, ex:actor-contractor-alpha-001, ex:actor-contractor-beta-001, ex:actor-auditor-001 ;
+    cpm:hasCause ex:risk-opaque-procurement-001 ;
+    cpm:hasVulnerability ex:risk-inadequate-competition-001 ;
+    cpm:hasImpact ex:impact-reduced-competition-001, ex:impact-cost-overrun-001, ex:impact-vfm-loss-001 ;
+    cpm:hasRedFlag ex:redflag-identical-bid-documents-001, ex:redflag-bid-prices-too-close-001, ex:redflag-repeated-awards-001 ;
+    cpm:hasIndicator ex:indicator-bid-concentration-001 ;
+    cpm:isMitigatedBy ex:control-eprocurement-001, ex:control-independent-audit-001, ex:control-red-flag-analytics-001 ;
+    cpm:isDetectedBy ex:control-red-flag-analytics-001, ex:control-independent-audit-001 ;
+    cpm:hasEvidence ex:evidence-bid-analysis-001, ex:evidence-bid-comparison-001 ;
+    cpm:relatedToProcurementMethod ex:method-open-tender-001 ;
+    cpm:affectsStakeholder ex:actor-end-user-001 ;
+    cpm:documentedInCaseStudy ex:synthetic-procurement-collusion-case ;
+    cpm:riskScore "86.0"^^xsd:decimal ;
+    cpm:likelihoodScore "0.82"^^xsd:decimal ;
+    cpm:impactScore "0.89"^^xsd:decimal ;
+    cpm:eventDate "2026-04-15"^^xsd:date ;
+    cpm:detectionDate "2026-04-20"^^xsd:date ;
+    cpm:sourceReference "Synthetic case event for repository validation." .
+

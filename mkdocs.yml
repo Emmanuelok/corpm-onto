@@ -1,0 +1,16 @@
+site_name: corruptpm-ontology
+site_description: Ontology and tooling for modelling corruption in project management
+theme:
+  name: mkdocs
+nav:
+  - Home: index.md
+  - Getting Started: getting-started.md
+  - Ontology Overview: ontology-overview.md
+  - Ontology Map: ontology-map.md
+  - Lifecycle Model: lifecycle-model.md
+  - Competency Questions: competency-questions.md
+  - Validation Guide: validation-guide.md
+  - Extension Guide: extension-guide.md
+  - Examples: examples.md
+  - API: api.md
+  - Construct Catalog: construct-catalog.md

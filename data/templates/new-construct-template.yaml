@@ -1,0 +1,16 @@
+id: VariationOrderManipulation
+label: Variation order manipulation
+type: CorruptAct
+definition: Manipulation of contract variations or change orders to obtain improper benefit.
+broader: ProcurementManipulation
+related_phases:
+  - ConstructionOrImplementationPhase
+related_contract_stages:
+  - VariationOrderStage
+red_flags:
+  - FrequentVariationOrders
+  - LargeCostIncreaseAfterAward
+controls:
+  - VariationOrderReviewBoard
+  - TechnicalAudit
+scope_note: Use when the improper benefit is linked to unjustified, inflated, or manipulated project variations.

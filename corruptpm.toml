@@ -1,0 +1,19 @@
+[namespace]
+base_iri = "https://w3id.org/corruptpm/"
+prefix = "cpm"
+provisional = true
+
+[paths]
+master_ontology = "ontology/corruptpm-master.ttl"
+shapes = "shapes/corruptpm-shapes.ttl"
+examples_dir = "data/examples"
+queries_dir = "queries"
+catalog_output = "docs/construct-catalog.md"
+visualization_output = "docs/ontology-map.md"
+
+[validation]
+risk_score_min = 0.0
+risk_score_max = 100.0
+normalized_score_min = 0.0
+normalized_score_max = 1.0
+

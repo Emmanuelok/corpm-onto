@@ -1,0 +1,154 @@
+@prefix cpm: <https://w3id.org/corruptpm/> .
+@prefix ex: <https://w3id.org/corruptpm/examples/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:synthetic-variation-order-case a cpm:SyntheticCaseStudy ;
+    rdfs:label "Synthetic variation order manipulation case 001"@en ;
+    cpm:caseName "Synthetic Variation Order Manipulation Case 001" ;
+    cpm:description "Synthetic case study illustrating manipulation of variation orders and overbilling during implementation. This is not a real allegation." ;
+    cpm:sourceReference "Synthetic example created for repository validation and demonstration." ;
+    skos:scopeNote "Synthetic example only. Do not treat as a real-world allegation."@en .
+
+ex:project-water-treatment-001 a cpm:Project ;
+    rdfs:label "Synthetic water treatment upgrade project"@en ;
+    cpm:description "Synthetic infrastructure implementation project used to demonstrate change-order abuse." ;
+    cpm:projectValue "78000000.00"^^xsd:decimal ;
+    cpm:projectStartDate "2025-10-01"^^xsd:date ;
+    cpm:projectEndDate "2027-12-31"^^xsd:date .
+
+ex:phase-construction-001 a cpm:ConstructionOrImplementationPhase ;
+    rdfs:label "Construction phase instance for case 002"@en .
+
+ex:stage-variation-order-001 a cpm:VariationOrderStage ;
+    rdfs:label "Variation order stage instance for case 002"@en .
+
+ex:decision-variation-approval-001 a cpm:VariationApprovalDecisionPoint ;
+    rdfs:label "Variation approval decision point for case 002"@en .
+
+ex:asset-payment-certificate-001 a cpm:PaymentCertificate ;
+    rdfs:label "Payment certificate package for case 002"@en .
+
+ex:role-project-manager-001 a cpm:DecisionAuthorityRole ;
+    rdfs:label "Project management approval role"@en .
+
+ex:role-contract-manager-001 a cpm:DecisionAuthorityRole ;
+    rdfs:label "Contract management approval role"@en .
+
+ex:role-main-contractor-001 a cpm:DeliveryRole ;
+    rdfs:label "Main contractor delivery role"@en .
+
+ex:role-quantity-surveyor-001 a cpm:FinancialControlRole ;
+    rdfs:label "Quantity surveying valuation role"@en .
+
+ex:actor-project-manager-001 a cpm:ProjectManager ;
+    rdfs:label "Synthetic project manager"@en ;
+    cpm:hasActorRole ex:role-project-manager-001 .
+
+ex:actor-contract-manager-001 a cpm:ContractManager ;
+    rdfs:label "Synthetic contract manager"@en ;
+    cpm:hasActorRole ex:role-contract-manager-001 .
+
+ex:actor-main-contractor-002 a cpm:MainContractor ;
+    rdfs:label "Synthetic main contractor Gamma"@en ;
+    cpm:hasActorRole ex:role-main-contractor-001 .
+
+ex:actor-quantity-surveyor-001 a cpm:QuantitySurveyor ;
+    rdfs:label "Synthetic quantity surveyor"@en ;
+    cpm:hasActorRole ex:role-quantity-surveyor-001 .
+
+ex:actor-supervision-consultant-001 a cpm:SupervisionConsultant ;
+    rdfs:label "Synthetic supervision consultant"@en .
+
+ex:act-variation-order-manipulation-001 a cpm:VariationOrderManipulation ;
+    rdfs:label "Synthetic variation order manipulation act"@en ;
+    cpm:description "Synthetic manipulation of scope changes and pricing to inflate compensation." ;
+    cpm:exploitsDecisionPoint ex:decision-variation-approval-001 ;
+    cpm:targetsAssetOrResource ex:asset-payment-certificate-001 .
+
+ex:act-overbilling-001 a cpm:Overbilling ;
+    rdfs:label "Synthetic overbilling act"@en ;
+    cpm:description "Synthetic inflation of unit prices and quantities through repeated change orders." .
+
+ex:vulnerability-poor-contract-management-001 a cpm:PoorContractManagement ;
+    rdfs:label "Poor contract management vulnerability instance"@en .
+
+ex:cause-budget-pressure-001 a cpm:BudgetPressure ;
+    rdfs:label "Budget pressure cause instance"@en .
+
+ex:redflag-frequent-variation-orders-001 a cpm:FrequentVariationOrders ;
+    rdfs:label "Frequent variation orders instance"@en ;
+    cpm:description "Synthetic pattern of repeated changes over a short period." ;
+    cpm:confidenceScore "0.92"^^xsd:decimal .
+
+ex:redflag-large-cost-increase-001 a cpm:LargeCostIncreaseAfterAward ;
+    rdfs:label "Large cost increase after award instance"@en ;
+    cpm:description "Synthetic jump in contract value after award." ;
+    cpm:confidenceScore "0.90"^^xsd:decimal .
+
+ex:redflag-unexplained-scope-changes-001 a cpm:UnexplainedScopeChanges ;
+    rdfs:label "Unexplained scope changes instance"@en ;
+    cpm:description "Synthetic scope adjustments with weak technical justification." ;
+    cpm:confidenceScore "0.88"^^xsd:decimal .
+
+ex:indicator-change-order-rate-001 a cpm:ChangeOrderRateIndicator ;
+    rdfs:label "Change order rate indicator instance"@en ;
+    cpm:description "Synthetic indicator showing a very high rate of change orders." ;
+    cpm:confidenceScore "0.87"^^xsd:decimal .
+
+ex:control-variation-review-board-001 a cpm:VariationOrderReviewBoard ;
+    rdfs:label "Synthetic variation order review board deployment"@en ;
+    cpm:description "Synthetic governance board created to challenge project variations." .
+
+ex:control-technical-audit-001 a cpm:TechnicalAudit ;
+    rdfs:label "Synthetic technical audit deployment"@en ;
+    cpm:description "Synthetic technical audit of quantities, pricing, and justification." .
+
+ex:control-contract-performance-monitoring-001 a cpm:ContractPerformanceMonitoring ;
+    rdfs:label "Synthetic contract performance monitoring deployment"@en ;
+    cpm:description "Synthetic monitoring of delivery progress, quantities, and performance milestones." .
+
+ex:impact-cost-overrun-002 a cpm:CostOverrun ;
+    rdfs:label "Cost overrun impact instance for case 002"@en .
+
+ex:impact-schedule-delay-001 a cpm:ScheduleDelay ;
+    rdfs:label "Schedule delay impact instance"@en .
+
+ex:impact-poor-quality-001 a cpm:PoorQuality ;
+    rdfs:label "Poor quality impact instance"@en .
+
+ex:evidence-variation-log-001 a cpm:DocumentaryEvidence ;
+    rdfs:label "Synthetic variation log"@en ;
+    cpm:description "Synthetic register of change orders with weak justifications and repeated approvals." ;
+    cpm:sourceReference "Synthetic variation log created for ontology examples." .
+
+ex:evidence-pricing-analysis-001 a cpm:AnalyticEvidence ;
+    rdfs:label "Synthetic pricing anomaly analysis"@en ;
+    cpm:description "Synthetic analysis showing inflated prices and abnormal change frequency." ;
+    cpm:sourceReference "Synthetic analytics created for ontology examples." .
+
+ex:event-variation-order-manipulation-001 a cpm:CorruptionEvent ;
+    rdfs:label "Synthetic variation order manipulation event 001"@en ;
+    cpm:description "Synthetic corruption event capturing variation-order abuse and overbilling during implementation." ;
+    cpm:occursInProject ex:project-water-treatment-001 ;
+    cpm:occursInPhase ex:phase-construction-001 ;
+    cpm:occursInContractStage ex:stage-variation-order-001 ;
+    cpm:hasCorruptAct ex:act-variation-order-manipulation-001, ex:act-overbilling-001 ;
+    cpm:involvesActor ex:actor-project-manager-001, ex:actor-contract-manager-001, ex:actor-main-contractor-002, ex:actor-quantity-surveyor-001, ex:actor-supervision-consultant-001 ;
+    cpm:hasCause ex:cause-budget-pressure-001 ;
+    cpm:hasVulnerability ex:vulnerability-poor-contract-management-001 ;
+    cpm:hasImpact ex:impact-cost-overrun-002, ex:impact-schedule-delay-001, ex:impact-poor-quality-001 ;
+    cpm:hasRedFlag ex:redflag-frequent-variation-orders-001, ex:redflag-large-cost-increase-001, ex:redflag-unexplained-scope-changes-001 ;
+    cpm:hasIndicator ex:indicator-change-order-rate-001 ;
+    cpm:isMitigatedBy ex:control-variation-review-board-001, ex:control-technical-audit-001, ex:control-contract-performance-monitoring-001 ;
+    cpm:isDetectedBy ex:control-technical-audit-001, ex:control-contract-performance-monitoring-001 ;
+    cpm:hasEvidence ex:evidence-variation-log-001, ex:evidence-pricing-analysis-001 ;
+    cpm:documentedInCaseStudy ex:synthetic-variation-order-case ;
+    cpm:riskScore "83.5"^^xsd:decimal ;
+    cpm:likelihoodScore "0.79"^^xsd:decimal ;
+    cpm:impactScore "0.86"^^xsd:decimal ;
+    cpm:eventDate "2026-02-11"^^xsd:date ;
+    cpm:detectionDate "2026-03-03"^^xsd:date ;
+    cpm:sourceReference "Synthetic case event for repository validation." .
+

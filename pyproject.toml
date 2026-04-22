@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "corruptpm-ontology"
+version = "0.1.0"
+description = "Dynamic ontology and tooling for modelling corruption in project management."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Apache-2.0" }
+authors = [
+  { name = "corruptpm-ontology contributors" }
+]
+keywords = ["ontology", "knowledge-graph", "corruption", "project-management", "rdf", "owl", "shacl"]
+dependencies = [
+  "click>=8.1,<9",
+  "owlrl>=6,<7",
+  "PyYAML>=6,<7",
+  "pyshacl>=0.26,<1",
+  "rdflib>=7,<8",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8,<9",
+]
+docs = [
+  "mkdocs>=1.6,<2",
+]
+
+[project.scripts]
+corruptpm = "corruptpm.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["corruptpm*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+

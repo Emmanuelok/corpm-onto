@@ -1,0 +1,16 @@
+PREFIX cpm: <https://w3id.org/corruptpm/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?control ?controlLabel
+WHERE {
+  ?control rdfs:subClassOf cpm:AntiCorruptionControl ;
+           rdfs:subClassOf ?restriction .
+  FILTER (?control != cpm:AntiCorruptionControl)
+  ?restriction a owl:Restriction ;
+               owl:onProperty cpm:hasControlObjective ;
+               owl:someValuesFrom cpm:TraceabilityObjective .
+  OPTIONAL { ?control rdfs:label ?controlLabel }
+}
+ORDER BY ?controlLabel
+

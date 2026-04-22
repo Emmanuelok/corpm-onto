@@ -1,0 +1,16 @@
+PREFIX cpm: <https://w3id.org/corruptpm/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?control ?controlLabel ?barrier ?barrierLabel
+WHERE {
+  VALUES ?control { cpm:EProcurement cpm:WhistleblowingMechanism cpm:VariationOrderReviewBoard }
+  ?control rdfs:subClassOf ?restriction .
+  ?restriction a owl:Restriction ;
+               owl:onProperty cpm:hasBarrier ;
+               owl:someValuesFrom ?barrier .
+  OPTIONAL { ?control rdfs:label ?controlLabel }
+  OPTIONAL { ?barrier rdfs:label ?barrierLabel }
+}
+ORDER BY ?controlLabel ?barrierLabel
+

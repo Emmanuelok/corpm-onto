@@ -1,0 +1,17 @@
+PREFIX cpm: <https://w3id.org/corruptpm/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?case ?caseName ?event ?eventLabel ?actorType
+WHERE {
+  ?case a cpm:SyntheticCaseStudy ;
+        cpm:caseName ?caseName .
+  ?event a cpm:CorruptionEvent ;
+         cpm:documentedInCaseStudy ?case ;
+         cpm:involvesActor ?actor .
+  ?actor rdf:type ?actorType .
+  FILTER (?actorType != cpm:ProjectActor)
+  OPTIONAL { ?event rdfs:label ?eventLabel }
+}
+ORDER BY ?caseName ?eventLabel ?actorType
+

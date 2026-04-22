@@ -1,0 +1,16 @@
+PREFIX cpm: <https://w3id.org/corruptpm/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?actorType ?actorLabel
+WHERE {
+  ?actorType rdfs:subClassOf cpm:ProjectActor ;
+             rdfs:subClassOf ?restriction .
+  ?restriction a owl:Restriction ;
+               owl:onProperty cpm:hasActorRole ;
+               owl:someValuesFrom ?role .
+  VALUES ?role { cpm:OversightRole cpm:CommunityOversightRole }
+  OPTIONAL { ?actorType rdfs:label ?actorLabel }
+}
+ORDER BY ?actorLabel
+

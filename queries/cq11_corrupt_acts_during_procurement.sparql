@@ -1,0 +1,23 @@
+PREFIX cpm: <https://w3id.org/corruptpm/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?act ?actLabel
+WHERE {
+  {
+    cpm:ProcurementPhase rdfs:subClassOf ?restriction .
+    ?restriction a owl:Restriction ;
+                 owl:onProperty cpm:hasCorruptAct ;
+                 owl:someValuesFrom ?act .
+  }
+  UNION
+  {
+    ?act rdfs:subClassOf ?restriction .
+    ?restriction a owl:Restriction ;
+                 owl:onProperty cpm:occursInPhase ;
+                 owl:someValuesFrom cpm:ProcurementPhase .
+  }
+  OPTIONAL { ?act rdfs:label ?actLabel }
+}
+ORDER BY ?actLabel
+

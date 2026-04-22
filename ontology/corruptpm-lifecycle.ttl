@@ -1,0 +1,136 @@
+@prefix cpm: <https://w3id.org/corruptpm/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+cpm:corruptpm-lifecycle a owl:Ontology ;
+    rdfs:label "corruptpm lifecycle module"@en ;
+    owl:imports <corruptpm-core.ttl>, <corruptpm-causes-vulnerabilities.ttl>, <corruptpm-controls.ttl>, <corruptpm-indicators.ttl>, <corruptpm-corrupt-acts.ttl> .
+
+cpm:ProjectConceptionPhase a owl:Class ;
+    rdfs:subClassOf cpm:ProjectPhase ;
+    rdfs:label "Project conception phase"@en ;
+    skos:definition "The phase in which a project concept, strategic rationale, and initial sponsoring interest are formed."@en .
+
+cpm:FeasibilityAndPreInvestmentPhase a owl:Class ;
+    rdfs:subClassOf cpm:ProjectPhase ;
+    rdfs:label "Feasibility and pre-investment phase"@en ;
+    skos:definition "The phase in which feasibility, options, pre-investment studies, and strategic justification are developed."@en .
+
+cpm:PlanningPhase a owl:Class ;
+    rdfs:subClassOf cpm:ProjectPhase ;
+    rdfs:label "Planning phase"@en ;
+    skos:definition "The phase in which scope, schedules, budgets, governance, and implementation plans are established."@en .
+
+cpm:DesignPhase a owl:Class ;
+    rdfs:subClassOf cpm:ProjectPhase ;
+    rdfs:label "Design phase"@en ;
+    skos:definition "The phase in which engineering, technical, or service designs are prepared, reviewed, and approved."@en .
+
+cpm:LandAcquisitionAndCompensationPhase a owl:Class ;
+    rdfs:subClassOf
+        cpm:ProjectPhase,
+        [ a owl:Restriction ; owl:onProperty cpm:hasRiskFactor ; owl:someValuesFrom cpm:InformationAsymmetry ],
+        [ a owl:Restriction ; owl:onProperty cpm:hasRiskFactor ; owl:someValuesFrom cpm:PoliticalPatronage ],
+        [ a owl:Restriction ; owl:onProperty cpm:hasRiskFactor ; owl:someValuesFrom cpm:WeakAccountability ],
+        [ a owl:Restriction ; owl:onProperty cpm:hasVulnerability ; owl:someValuesFrom cpm:PoorStakeholderOversight ],
+        [ a owl:Restriction ; owl:onProperty cpm:isMitigatedBy ; owl:someValuesFrom cpm:CommunityMonitoring ] ;
+    rdfs:label "Land acquisition and compensation phase"@en ;
+    skos:definition "The phase in which land, easements, rights, or compensation arrangements are negotiated and administered."@en ;
+    skos:scopeNote "This phase is critical in infrastructure and AEC projects but the pattern also generalises to projects with resettlement, access, or compensation issues."@en .
+
+cpm:FinancingAndBudgetAllocationPhase a owl:Class ;
+    rdfs:subClassOf
+        cpm:ProjectPhase,
+        [ a owl:Restriction ; owl:onProperty cpm:hasRiskFactor ; owl:someValuesFrom cpm:PoliticalPatronage ],
+        [ a owl:Restriction ; owl:onProperty cpm:hasRiskFactor ; owl:someValuesFrom cpm:WeakGovernance ] ;
+    rdfs:label "Financing and budget allocation phase"@en ;
+    skos:definition "The phase in which budgets, financing structures, approvals, and allocations are organised."@en .
+
+cpm:ProcurementPhase a owl:Class ;
+    rdfs:subClassOf
+        cpm:ProjectPhase,
+        [ a owl:Restriction ; owl:onProperty cpm:hasRiskFactor ; owl:someValuesFrom cpm:OpaqueProcurement ],
+        [ a owl:Restriction ; owl:onProperty cpm:hasRiskFactor ; owl:someValuesFrom cpm:InadequateCompetition ],
+        [ a owl:Restriction ; owl:onProperty cpm:hasRiskFactor ; owl:someValuesFrom cpm:InformationAsymmetry ],
+        [ a owl:Restriction ; owl:onProperty cpm:hasCorruptAct ; owl:someValuesFrom cpm:BidRigging ],
+        [ a owl:Restriction ; owl:onProperty cpm:hasCorruptAct ; owl:someValuesFrom cpm:ProcurementManipulation ],
+        [ a owl:Restriction ; owl:onProperty cpm:hasRedFlag ; owl:someValuesFrom cpm:SingleBidder ],
+        [ a owl:Restriction ; owl:onProperty cpm:hasRedFlag ; owl:someValuesFrom cpm:UnusuallyShortTenderPeriod ],
+        [ a owl:Restriction ; owl:onProperty cpm:hasRedFlag ; owl:someValuesFrom cpm:RepeatedContractAwardsToSameFirm ],
+        [ a owl:Restriction ; owl:onProperty cpm:isMitigatedBy ; owl:someValuesFrom cpm:EProcurement ],
+        [ a owl:Restriction ; owl:onProperty cpm:isMitigatedBy ; owl:someValuesFrom cpm:OpenContracting ],
+        [ a owl:Restriction ; owl:onProperty cpm:isMitigatedBy ; owl:someValuesFrom cpm:IndependentAudit ],
+        [ a owl:Restriction ; owl:onProperty cpm:relatedToProcurementMethod ; owl:someValuesFrom cpm:OpenTendering ] ;
+    rdfs:label "Procurement phase"@en ;
+    skos:definition "The phase in which procurement packaging, solicitation, evaluation, award, and related decisions are prepared and executed."@en .
+
+cpm:ProcurementOfProfessionalServicesPhase a owl:Class ;
+    rdfs:subClassOf
+        cpm:ProjectPhase,
+        [ a owl:Restriction ; owl:onProperty cpm:hasRiskFactor ; owl:someValuesFrom cpm:DiscretionaryDecisionMaking ],
+        [ a owl:Restriction ; owl:onProperty cpm:hasRiskFactor ; owl:someValuesFrom cpm:OpaqueProcurement ] ;
+    rdfs:label "Procurement of professional services phase"@en ;
+    skos:definition "The phase in which design, supervision, advisory, or consulting services are procured."@en .
+
+cpm:ConstructionOrImplementationPhase a owl:Class ;
+    rdfs:subClassOf
+        cpm:ProjectPhase,
+        [ a owl:Restriction ; owl:onProperty cpm:hasRiskFactor ; owl:someValuesFrom cpm:PoorContractManagement ],
+        [ a owl:Restriction ; owl:onProperty cpm:hasRiskFactor ; owl:someValuesFrom cpm:ComplexSupplyChain ],
+        [ a owl:Restriction ; owl:onProperty cpm:hasRiskFactor ; owl:someValuesFrom cpm:BudgetPressure ],
+        [ a owl:Restriction ; owl:onProperty cpm:hasCorruptAct ; owl:someValuesFrom cpm:VariationOrderManipulation ],
+        [ a owl:Restriction ; owl:onProperty cpm:hasCorruptAct ; owl:someValuesFrom cpm:Overbilling ],
+        [ a owl:Restriction ; owl:onProperty cpm:hasRedFlag ; owl:someValuesFrom cpm:FrequentVariationOrders ],
+        [ a owl:Restriction ; owl:onProperty cpm:hasRedFlag ; owl:someValuesFrom cpm:LargeCostIncreaseAfterAward ],
+        [ a owl:Restriction ; owl:onProperty cpm:isMitigatedBy ; owl:someValuesFrom cpm:ContractPerformanceMonitoring ],
+        [ a owl:Restriction ; owl:onProperty cpm:isMitigatedBy ; owl:someValuesFrom cpm:TechnicalAudit ] ;
+    rdfs:label "Construction or implementation phase"@en ;
+    skos:definition "The phase in which physical works, implementation tasks, or project delivery outputs are executed."@en .
+
+cpm:InspectionPhase a owl:Class ;
+    rdfs:subClassOf
+        cpm:ProjectPhase,
+        [ a owl:Restriction ; owl:onProperty cpm:hasRiskFactor ; owl:someValuesFrom cpm:WeakAccountability ],
+        [ a owl:Restriction ; owl:onProperty cpm:hasRiskFactor ; owl:someValuesFrom cpm:LowDetectionProbability ],
+        [ a owl:Restriction ; owl:onProperty cpm:hasCorruptAct ; owl:someValuesFrom cpm:QualityInspectionFraud ],
+        [ a owl:Restriction ; owl:onProperty cpm:hasCorruptAct ; owl:someValuesFrom cpm:FalseCertification ],
+        [ a owl:Restriction ; owl:onProperty cpm:hasRedFlag ; owl:someValuesFrom cpm:DelayedInspectionReports ],
+        [ a owl:Restriction ; owl:onProperty cpm:hasRedFlag ; owl:someValuesFrom cpm:QualityDefectsDespiteCertification ],
+        [ a owl:Restriction ; owl:onProperty cpm:isDetectedBy ; owl:someValuesFrom cpm:IndependentTechnicalAudit ],
+        [ a owl:Restriction ; owl:onProperty cpm:isDetectedBy ; owl:someValuesFrom cpm:RealTimeProjectMonitoring ] ;
+    rdfs:label "Inspection phase"@en ;
+    skos:definition "The phase in which compliance, quality, or completion is inspected, supervised, or certified."@en .
+
+cpm:MonitoringAndEvaluationPhase a owl:Class ;
+    rdfs:subClassOf
+        cpm:ProjectPhase,
+        [ a owl:Restriction ; owl:onProperty cpm:isDetectedBy ; owl:someValuesFrom cpm:RedFlagAnalytics ],
+        [ a owl:Restriction ; owl:onProperty cpm:isDetectedBy ; owl:someValuesFrom cpm:RealTimeProjectMonitoring ] ;
+    rdfs:label "Monitoring and evaluation phase"@en ;
+    skos:definition "The phase in which progress, performance, and outcomes are monitored and evaluated."@en .
+
+cpm:HandoverAndCommissioningPhase a owl:Class ;
+    rdfs:subClassOf cpm:ProjectPhase ;
+    rdfs:label "Handover and commissioning phase"@en ;
+    skos:definition "The phase in which project outputs are tested, handed over, or brought into operational service."@en .
+
+cpm:OperationAndServiceDeliveryPhase a owl:Class ;
+    rdfs:subClassOf
+        cpm:ProjectPhase,
+        [ a owl:Restriction ; owl:onProperty cpm:hasRiskFactor ; owl:someValuesFrom cpm:WeakGovernance ] ;
+    rdfs:label "Operation and service delivery phase"@en ;
+    skos:definition "The phase in which the delivered asset, service, or intervention is operated for users or beneficiaries."@en .
+
+cpm:MaintenancePhase a owl:Class ;
+    rdfs:subClassOf
+        cpm:ProjectPhase,
+        [ a owl:Restriction ; owl:onProperty cpm:hasRiskFactor ; owl:someValuesFrom cpm:PoorContractManagement ] ;
+    rdfs:label "Maintenance phase"@en ;
+    skos:definition "The phase in which maintenance, repair, lifecycle support, or aftercare activities are performed."@en .
+
+cpm:CloseoutPhase a owl:Class ;
+    rdfs:subClassOf cpm:ProjectPhase ;
+    rdfs:label "Closeout phase"@en ;
+    skos:definition "The phase in which contractual, financial, administrative, and lessons-learned activities are closed out."@en .
+

@@ -1,0 +1,83 @@
+@prefix cpm: <https://w3id.org/corruptpm/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+cpm:corruptpm-impacts a owl:Ontology ;
+    rdfs:label "corruptpm impacts module"@en ;
+    owl:imports <corruptpm-core.ttl> .
+
+cpm:CostOverrun a owl:Class ;
+    rdfs:subClassOf cpm:Impact ;
+    rdfs:label "Cost overrun"@en ;
+    skos:definition "An increase in project cost beyond justified or expected baselines."@en .
+
+cpm:ScheduleDelay a owl:Class ;
+    rdfs:subClassOf cpm:Impact ;
+    rdfs:label "Schedule delay"@en ;
+    skos:definition "A delay in planned project completion, milestone achievement, or service readiness."@en .
+
+cpm:PoorQuality a owl:Class ;
+    rdfs:subClassOf cpm:Impact ;
+    rdfs:label "Poor quality"@en ;
+    skos:definition "A degradation in quality, conformity, or fitness for intended purpose."@en .
+
+cpm:SafetyRisk a owl:Class ;
+    rdfs:subClassOf cpm:Impact ;
+    rdfs:label "Safety risk"@en ;
+    skos:definition "An increase in risk of injury, loss of life, or unsafe operating conditions."@en .
+
+cpm:EnvironmentalDamage a owl:Class ;
+    rdfs:subClassOf cpm:Impact ;
+    rdfs:label "Environmental damage"@en ;
+    skos:definition "Environmental harm linked to project corruption, weak control, or manipulated compliance."@en .
+
+cpm:ReducedPublicTrust a owl:Class ;
+    rdfs:subClassOf cpm:Impact ;
+    rdfs:label "Reduced public trust"@en ;
+    skos:definition "A reduction in trust in project institutions, procurement, delivery, or public governance."@en .
+
+cpm:LossOfValueForMoney a owl:Class ;
+    rdfs:subClassOf cpm:Impact ;
+    rdfs:label "Loss of value for money"@en ;
+    skos:definition "A failure to obtain expected project value relative to cost, quality, and outcomes."@en .
+
+cpm:ReducedCompetition a owl:Class ;
+    rdfs:subClassOf cpm:Impact ;
+    rdfs:label "Reduced competition"@en ;
+    skos:definition "A reduction in genuine market competition or access to fair participation."@en .
+
+cpm:SocialInequity a owl:Class ;
+    rdfs:subClassOf cpm:Impact ;
+    rdfs:label "Social inequity"@en ;
+    skos:definition "Distributional harm in which vulnerable communities bear disproportionate cost or reduced benefit."@en .
+
+cpm:LegalLiability a owl:Class ;
+    rdfs:subClassOf cpm:Impact ;
+    rdfs:label "Legal liability"@en ;
+    skos:definition "Exposure to legal, contractual, regulatory, or judicial consequence."@en .
+
+cpm:ReputationalDamage a owl:Class ;
+    rdfs:subClassOf cpm:Impact ;
+    rdfs:label "Reputational damage"@en ;
+    skos:definition "Damage to the credibility, legitimacy, or public standing of actors or institutions."@en .
+
+cpm:ProjectFailure a owl:Class ;
+    rdfs:subClassOf cpm:Impact ;
+    rdfs:label "Project failure"@en ;
+    skos:definition "A failure to deliver the intended project outputs, outcomes, or service objectives."@en .
+
+cpm:InfrastructureUnderperformance a owl:Class ;
+    rdfs:subClassOf cpm:Impact ;
+    rdfs:label "Infrastructure underperformance"@en ;
+    skos:definition "An infrastructure asset that underperforms against design, service, or resilience expectations."@en .
+
+cpm:ServiceDeliveryFailure a owl:Class ;
+    rdfs:subClassOf cpm:Impact ;
+    rdfs:label "Service delivery failure"@en ;
+    skos:definition "A failure to deliver expected services or user outcomes."@en .
+
+cpm:EconomicInefficiency a owl:Class ;
+    rdfs:subClassOf cpm:Impact ;
+    rdfs:label "Economic inefficiency"@en ;
+    skos:definition "Inefficient allocation or use of public, private, or donor resources due to corruption or control failure."@en .

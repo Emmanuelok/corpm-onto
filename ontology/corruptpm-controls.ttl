@@ -1,0 +1,424 @@
+@prefix cpm: <https://w3id.org/corruptpm/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+cpm:corruptpm-controls a owl:Ontology ;
+    rdfs:label "corruptpm controls module"@en ;
+    owl:imports <corruptpm-core.ttl> .
+
+cpm:PreventionObjective a owl:Class ;
+    rdfs:subClassOf cpm:ControlObjective ;
+    rdfs:label "Prevention objective"@en ;
+    skos:definition "A control objective focused on preventing corruption before it materialises."@en .
+
+cpm:DetectionObjective a owl:Class ;
+    rdfs:subClassOf cpm:ControlObjective ;
+    rdfs:label "Detection objective"@en ;
+    skos:definition "A control objective focused on detecting corruption, fraud, collusion, or control failure."@en .
+
+cpm:TraceabilityObjective a owl:Class ;
+    rdfs:subClassOf cpm:ControlObjective ;
+    rdfs:label "Traceability objective"@en ;
+    skos:definition "A control objective focused on preserving reliable transaction, decision, and documentation traceability."@en .
+
+cpm:TransparencyObjective a owl:Class ;
+    rdfs:subClassOf cpm:ControlObjective ;
+    rdfs:label "Transparency objective"@en ;
+    skos:definition "A control objective focused on disclosure, openness, and stakeholder visibility."@en .
+
+cpm:AccountabilityObjective a owl:Class ;
+    rdfs:subClassOf cpm:ControlObjective ;
+    rdfs:label "Accountability objective"@en ;
+    skos:definition "A control objective focused on clarifying responsibility and enabling scrutiny and response."@en .
+
+cpm:CompetitionObjective a owl:Class ;
+    rdfs:subClassOf cpm:ControlObjective ;
+    rdfs:label "Competition objective"@en ;
+    skos:definition "A control objective focused on fair market participation and reducing collusion or capture."@en .
+
+cpm:ParticipationObjective a owl:Class ;
+    rdfs:subClassOf cpm:ControlObjective ;
+    rdfs:label "Participation objective"@en ;
+    skos:definition "A control objective focused on enabling affected stakeholders to observe, question, and report."@en .
+
+cpm:QualityAssuranceObjective a owl:Class ;
+    rdfs:subClassOf cpm:ControlObjective ;
+    rdfs:label "Quality assurance objective"@en ;
+    skos:definition "A control objective focused on quality integrity, verification, and fit-for-purpose delivery."@en .
+
+cpm:PreventiveControl a owl:Class ;
+    rdfs:subClassOf cpm:AntiCorruptionControl ;
+    rdfs:label "Preventive control"@en ;
+    skos:definition "A control intended to reduce the chance that corruption occurs."@en .
+
+cpm:DetectiveControl a owl:Class ;
+    rdfs:subClassOf cpm:AntiCorruptionControl ;
+    rdfs:label "Detective control"@en ;
+    skos:definition "A control intended to reveal or signal corruption after or while it occurs."@en .
+
+cpm:CorrectiveControl a owl:Class ;
+    rdfs:subClassOf cpm:AntiCorruptionControl ;
+    rdfs:label "Corrective control"@en ;
+    skos:definition "A control intended to correct a control failure or limit downstream harm."@en .
+
+cpm:PunitiveControl a owl:Class ;
+    rdfs:subClassOf cpm:AntiCorruptionControl ;
+    rdfs:label "Punitive control"@en ;
+    skos:definition "A control intended to deter misconduct through sanctions or exclusion."@en .
+
+cpm:GovernanceControl a owl:Class ;
+    rdfs:subClassOf cpm:AntiCorruptionControl ;
+    rdfs:label "Governance control"@en ;
+    skos:definition "A control embedded in governance arrangements, approvals, committees, mandates, or institutional rules."@en .
+
+cpm:DigitalControl a owl:Class ;
+    rdfs:subClassOf cpm:AntiCorruptionControl ;
+    rdfs:label "Digital control"@en ;
+    skos:definition "A control enabled by digital systems, data, analytics, or digital transaction capture."@en .
+
+cpm:ContractualControl a owl:Class ;
+    rdfs:subClassOf cpm:AntiCorruptionControl ;
+    rdfs:label "Contractual control"@en ;
+    skos:definition "A control embedded in contract structure, clauses, reviews, or administration."@en .
+
+cpm:ProcurementControl a owl:Class ;
+    rdfs:subClassOf cpm:AntiCorruptionControl ;
+    rdfs:label "Procurement control"@en ;
+    skos:definition "A control focused on improving procurement integrity, competition, or transparency."@en .
+
+cpm:CommunityOversightControl a owl:Class ;
+    rdfs:subClassOf cpm:AntiCorruptionControl ;
+    rdfs:label "Community oversight control"@en ;
+    skos:definition "A control that enables external social accountability, monitoring, or complaint."@en .
+
+cpm:FinancialControl a owl:Class ;
+    rdfs:subClassOf cpm:AntiCorruptionControl ;
+    rdfs:label "Financial control"@en ;
+    skos:definition "A control focused on costs, payments, valuation, or financial traceability."@en .
+
+cpm:AuditControl a owl:Class ;
+    rdfs:subClassOf cpm:AntiCorruptionControl ;
+    rdfs:label "Audit control"@en ;
+    skos:definition "A control focused on audit review, assurance, or forensic checking."@en .
+
+cpm:ReportingControl a owl:Class ;
+    rdfs:subClassOf cpm:AntiCorruptionControl ;
+    rdfs:label "Reporting control"@en ;
+    skos:definition "A control focused on safe reporting, complaints, escalation, and intake."@en .
+
+cpm:TransparencyControl a owl:Class ;
+    rdfs:subClassOf cpm:AntiCorruptionControl ;
+    rdfs:label "Transparency control"@en ;
+    skos:definition "A control focused on disclosure, visibility, and public or institutional access to project information."@en .
+
+cpm:PoliticalResistance a owl:Class ;
+    rdfs:subClassOf cpm:Barrier ;
+    rdfs:label "Political resistance"@en ;
+    skos:definition "Resistance from political actors or power structures that obstruct anti-corruption controls."@en .
+
+cpm:InstitutionalWeakness a owl:Class ;
+    rdfs:subClassOf cpm:Barrier ;
+    rdfs:label "Institutional weakness"@en ;
+    skos:definition "Institutional fragility that limits implementation, continuity, or control ownership."@en .
+
+cpm:LimitedTechnicalCapacity a owl:Class ;
+    rdfs:subClassOf cpm:Barrier ;
+    rdfs:label "Limited technical capacity"@en ;
+    skos:definition "Insufficient technical capability to implement or maintain a control effectively."@en .
+
+cpm:LackOfFunding a owl:Class ;
+    rdfs:subClassOf cpm:Barrier ;
+    rdfs:label "Lack of funding"@en ;
+    skos:definition "Insufficient financial resources to adopt, sustain, or scale a control."@en .
+
+cpm:FearOfRetaliation a owl:Class ;
+    rdfs:subClassOf cpm:Barrier ;
+    rdfs:label "Fear of retaliation"@en ;
+    skos:definition "Fear of professional, legal, social, or physical retaliation that suppresses disclosure or control use."@en .
+
+cpm:WeakLegalFramework a owl:Class ;
+    rdfs:subClassOf cpm:Barrier ;
+    rdfs:label "Weak legal framework"@en ;
+    skos:definition "Insufficient legal authority or clarity to support effective anti-corruption implementation."@en .
+
+cpm:DataAvailabilityProblem a owl:Class ;
+    rdfs:subClassOf cpm:Barrier ;
+    rdfs:label "Data availability problem"@en ;
+    skos:definition "Missing, poor-quality, late, or inaccessible data that weakens anti-corruption analytics or oversight."@en .
+
+cpm:PoorInterAgencyCoordination a owl:Class ;
+    rdfs:subClassOf cpm:Barrier ;
+    rdfs:label "Poor inter-agency coordination"@en ;
+    skos:definition "Weak coordination across agencies or institutions that reduces control effectiveness."@en .
+
+cpm:CulturalAcceptanceOfCorruption a owl:Class ;
+    rdfs:subClassOf cpm:Barrier ;
+    rdfs:label "Cultural acceptance of corruption"@en ;
+    skos:definition "A social or organisational culture that tolerates corrupt behaviour or dismisses anti-corruption controls."@en .
+
+cpm:LowDigitalLiteracy a owl:Class ;
+    rdfs:subClassOf cpm:Barrier ;
+    rdfs:label "Low digital literacy"@en ;
+    skos:definition "Low user capability to operate digital anti-corruption tools or interpret their outputs."@en .
+
+cpm:LackOfEnforcement a owl:Class ;
+    rdfs:subClassOf cpm:Barrier ;
+    rdfs:label "Lack of enforcement"@en ;
+    skos:definition "Weak follow-through in applying control consequences or mandated responses."@en .
+
+cpm:RegulatoryFragmentation a owl:Class ;
+    rdfs:subClassOf cpm:Barrier ;
+    rdfs:label "Regulatory fragmentation"@en ;
+    skos:definition "Overlapping or inconsistent regulatory rules that complicate implementation."@en .
+
+cpm:ResistanceFromPowerfulActors a owl:Class ;
+    rdfs:subClassOf cpm:Barrier ;
+    rdfs:label "Resistance from powerful actors"@en ;
+    skos:definition "Resistance from influential organisations or individuals that benefit from opaque arrangements."@en .
+
+cpm:LackOfWhistleblowerProtection a owl:Class ;
+    rdfs:subClassOf cpm:Barrier ;
+    rdfs:label "Lack of whistleblower protection"@en ;
+    skos:definition "Weak protections for reporters that reduce safe disclosure."@en .
+
+cpm:PoorChangeManagement a owl:Class ;
+    rdfs:subClassOf cpm:Barrier ;
+    rdfs:label "Poor change management"@en ;
+    skos:definition "Weak organisational change management that undermines adoption of new controls."@en .
+
+cpm:EProcurement a owl:Class ;
+    rdfs:subClassOf
+        cpm:DigitalControl,
+        cpm:ProcurementControl,
+        cpm:PreventiveControl,
+        [ a owl:Restriction ; owl:onProperty cpm:hasControlObjective ; owl:someValuesFrom cpm:CompetitionObjective ],
+        [ a owl:Restriction ; owl:onProperty cpm:hasControlObjective ; owl:someValuesFrom cpm:TraceabilityObjective ],
+        [ a owl:Restriction ; owl:onProperty cpm:hasBarrier ; owl:someValuesFrom cpm:LimitedTechnicalCapacity ],
+        [ a owl:Restriction ; owl:onProperty cpm:hasBarrier ; owl:someValuesFrom cpm:LowDigitalLiteracy ],
+        [ a owl:Restriction ; owl:onProperty cpm:hasBarrier ; owl:someValuesFrom cpm:DataAvailabilityProblem ] ;
+    rdfs:label "E-procurement"@en ;
+    skos:definition "A digital procurement workflow that records, structures, and publishes procurement actions."@en .
+
+cpm:OpenContracting a owl:Class ;
+    rdfs:subClassOf
+        cpm:TransparencyControl,
+        cpm:ProcurementControl,
+        cpm:PreventiveControl,
+        [ a owl:Restriction ; owl:onProperty cpm:hasControlObjective ; owl:someValuesFrom cpm:TransparencyObjective ] ;
+    rdfs:label "Open contracting"@en ;
+    skos:definition "A control based on structured disclosure of procurement and contracting information across the contracting lifecycle."@en .
+
+cpm:BeneficialOwnershipDisclosure a owl:Class ;
+    rdfs:subClassOf
+        cpm:TransparencyControl,
+        cpm:PreventiveControl,
+        [ a owl:Restriction ; owl:onProperty cpm:hasControlObjective ; owl:someValuesFrom cpm:TraceabilityObjective ] ;
+    rdfs:label "Beneficial ownership disclosure"@en ;
+    skos:definition "A disclosure control that makes beneficial ownership information available for scrutiny."@en .
+
+cpm:ConflictOfInterestDeclaration a owl:Class ;
+    rdfs:subClassOf
+        cpm:GovernanceControl,
+        cpm:PreventiveControl,
+        [ a owl:Restriction ; owl:onProperty cpm:hasControlObjective ; owl:someValuesFrom cpm:PreventionObjective ] ;
+    rdfs:label "Conflict of interest declaration"@en ;
+    skos:definition "A control requiring declaration and management of relevant conflicts of interest."@en .
+
+cpm:IndependentAudit a owl:Class ;
+    rdfs:subClassOf
+        cpm:AuditControl,
+        cpm:DetectiveControl,
+        [ a owl:Restriction ; owl:onProperty cpm:hasControlObjective ; owl:someValuesFrom cpm:DetectionObjective ] ;
+    rdfs:label "Independent audit"@en ;
+    skos:definition "An audit performed with independence from the actors being reviewed."@en .
+
+cpm:TechnicalAudit a owl:Class ;
+    rdfs:subClassOf
+        cpm:AuditControl,
+        cpm:DetectiveControl,
+        [ a owl:Restriction ; owl:onProperty cpm:hasControlObjective ; owl:someValuesFrom cpm:QualityAssuranceObjective ] ;
+    rdfs:label "Technical audit"@en ;
+    skos:definition "A technical audit focused on design, quality, quantities, methods, or engineering conformance."@en .
+
+cpm:FinancialAudit a owl:Class ;
+    rdfs:subClassOf
+        cpm:AuditControl,
+        cpm:DetectiveControl,
+        cpm:FinancialControl,
+        [ a owl:Restriction ; owl:onProperty cpm:hasControlObjective ; owl:someValuesFrom cpm:DetectionObjective ] ;
+    rdfs:label "Financial audit"@en ;
+    skos:definition "A financial audit focused on payments, accounting, valuation, or financial reporting."@en .
+
+cpm:IndependentTechnicalAudit a owl:Class ;
+    rdfs:subClassOf cpm:TechnicalAudit, cpm:IndependentAudit ;
+    rdfs:label "Independent technical audit"@en ;
+    skos:definition "A technical audit that also emphasises institutional independence from delivery actors."@en .
+
+cpm:RealTimeProjectMonitoring a owl:Class ;
+    rdfs:subClassOf
+        cpm:DigitalControl,
+        cpm:DetectiveControl,
+        [ a owl:Restriction ; owl:onProperty cpm:hasControlObjective ; owl:someValuesFrom cpm:DetectionObjective ],
+        [ a owl:Restriction ; owl:onProperty cpm:hasControlObjective ; owl:someValuesFrom cpm:TraceabilityObjective ] ;
+    rdfs:label "Real-time project monitoring"@en ;
+    skos:definition "A monitoring control that captures and reviews project delivery signals with minimal lag."@en .
+
+cpm:DigitalPaymentTraceability a owl:Class ;
+    rdfs:subClassOf
+        cpm:DigitalControl,
+        cpm:FinancialControl,
+        cpm:DetectiveControl,
+        [ a owl:Restriction ; owl:onProperty cpm:hasControlObjective ; owl:someValuesFrom cpm:TraceabilityObjective ] ;
+    rdfs:label "Digital payment traceability"@en ;
+    skos:definition "A control that captures payment data in a digitally traceable and reviewable form."@en .
+
+cpm:WhistleblowingMechanism a owl:Class ;
+    rdfs:subClassOf
+        cpm:ReportingControl,
+        cpm:DetectiveControl,
+        [ a owl:Restriction ; owl:onProperty cpm:hasReportingMechanism ; owl:someValuesFrom cpm:AnonymousHotline ],
+        [ a owl:Restriction ; owl:onProperty cpm:hasBarrier ; owl:someValuesFrom cpm:FearOfRetaliation ],
+        [ a owl:Restriction ; owl:onProperty cpm:hasBarrier ; owl:someValuesFrom cpm:LackOfWhistleblowerProtection ] ;
+    rdfs:label "Whistleblowing mechanism"@en ;
+    skos:definition "A protected reporting mechanism that enables insiders or stakeholders to disclose concerns."@en .
+
+cpm:ComplaintHandlingMechanism a owl:Class ;
+    rdfs:subClassOf
+        cpm:ReportingControl,
+        cpm:CorrectiveControl,
+        [ a owl:Restriction ; owl:onProperty cpm:hasReportingMechanism ; owl:someValuesFrom cpm:CitizenComplaintPortal ] ;
+    rdfs:label "Complaint handling mechanism"@en ;
+    skos:definition "A mechanism for receiving, triaging, and responding to complaints related to project conduct or service outcomes."@en .
+
+cpm:SanctionsRegime a owl:Class ;
+    rdfs:subClassOf
+        cpm:PunitiveControl,
+        cpm:GovernanceControl,
+        [ a owl:Restriction ; owl:onProperty cpm:resultsInSanction ; owl:someValuesFrom cpm:AdministrativeSanction ],
+        [ a owl:Restriction ; owl:onProperty cpm:resultsInSanction ; owl:someValuesFrom cpm:CriminalPenalty ],
+        [ a owl:Restriction ; owl:onProperty cpm:hasBarrier ; owl:someValuesFrom cpm:LackOfEnforcement ] ;
+    rdfs:label "Sanctions regime"@en ;
+    skos:definition "A governance arrangement that defines and applies sanctions for corruption or integrity breaches."@en .
+
+cpm:Debarment a owl:Class ;
+    rdfs:subClassOf
+        cpm:PunitiveControl,
+        [ a owl:Restriction ; owl:onProperty cpm:resultsInSanction ; owl:someValuesFrom cpm:DebarmentSanction ] ;
+    rdfs:label "Debarment"@en ;
+    skos:definition "A punitive control that excludes actors from future project or procurement participation."@en .
+
+cpm:ProcurementTransparencyPortal a owl:Class ;
+    rdfs:subClassOf
+        cpm:TransparencyControl,
+        cpm:DigitalControl,
+        cpm:ProcurementControl,
+        [ a owl:Restriction ; owl:onProperty cpm:hasControlObjective ; owl:someValuesFrom cpm:TransparencyObjective ] ;
+    rdfs:label "Procurement transparency portal"@en ;
+    skos:definition "A portal that publishes procurement opportunities, documents, awards, and implementation data."@en .
+
+cpm:BidEvaluationCommitteeRotation a owl:Class ;
+    rdfs:subClassOf
+        cpm:GovernanceControl,
+        cpm:ProcurementControl,
+        cpm:PreventiveControl,
+        [ a owl:Restriction ; owl:onProperty cpm:hasControlObjective ; owl:someValuesFrom cpm:CompetitionObjective ] ;
+    rdfs:label "Bid evaluation committee rotation"@en ;
+    skos:definition "A governance control that rotates evaluation committee membership to reduce capture or familiarity risk."@en .
+
+cpm:SegregationOfDuties a owl:Class ;
+    rdfs:subClassOf
+        cpm:GovernanceControl,
+        cpm:PreventiveControl,
+        [ a owl:Restriction ; owl:onProperty cpm:hasControlObjective ; owl:someValuesFrom cpm:AccountabilityObjective ] ;
+    rdfs:label "Segregation of duties"@en ;
+    skos:definition "A control that separates incompatible responsibilities across actors or units."@en .
+
+cpm:ContractPerformanceMonitoring a owl:Class ;
+    rdfs:subClassOf
+        cpm:ContractualControl,
+        cpm:DetectiveControl,
+        [ a owl:Restriction ; owl:onProperty cpm:hasControlObjective ; owl:someValuesFrom cpm:QualityAssuranceObjective ] ;
+    rdfs:label "Contract performance monitoring"@en ;
+    skos:definition "A control that monitors contractual outputs, milestones, quality, and compliance."@en .
+
+cpm:VariationOrderReviewBoard a owl:Class ;
+    rdfs:subClassOf
+        cpm:GovernanceControl,
+        cpm:ContractualControl,
+        cpm:PreventiveControl,
+        [ a owl:Restriction ; owl:onProperty cpm:hasBarrier ; owl:someValuesFrom cpm:ResistanceFromPowerfulActors ] ;
+    rdfs:label "Variation order review board"@en ;
+    skos:definition "A multi-party review arrangement for scrutinising the justification and pricing of variations."@en .
+
+cpm:IndependentCostEstimate a owl:Class ;
+    rdfs:subClassOf
+        cpm:FinancialControl,
+        cpm:PreventiveControl,
+        [ a owl:Restriction ; owl:onProperty cpm:hasControlObjective ; owl:someValuesFrom cpm:CompetitionObjective ] ;
+    rdfs:label "Independent cost estimate"@en ;
+    skos:definition "An independently prepared cost benchmark used to challenge inflated prices or manipulated claims."@en .
+
+cpm:RedFlagAnalytics a owl:Class ;
+    rdfs:subClassOf
+        cpm:DigitalControl,
+        cpm:DetectiveControl,
+        [ a owl:Restriction ; owl:onProperty cpm:hasControlObjective ; owl:someValuesFrom cpm:DetectionObjective ],
+        [ a owl:Restriction ; owl:onProperty cpm:hasBarrier ; owl:someValuesFrom cpm:DataAvailabilityProblem ] ;
+    rdfs:label "Red flag analytics"@en ;
+    skos:definition "An analytics-based control that detects patterns associated with corruption risk or collusion."@en .
+
+cpm:BlockchainTraceability a owl:Class ;
+    rdfs:subClassOf
+        cpm:DigitalControl,
+        cpm:PreventiveControl,
+        [ a owl:Restriction ; owl:onProperty cpm:hasControlObjective ; owl:someValuesFrom cpm:TraceabilityObjective ],
+        [ a owl:Restriction ; owl:onProperty cpm:hasBarrier ; owl:someValuesFrom cpm:LimitedTechnicalCapacity ],
+        [ a owl:Restriction ; owl:onProperty cpm:hasBarrier ; owl:someValuesFrom cpm:PoorChangeManagement ] ;
+    rdfs:label "Blockchain traceability"@en ;
+    skos:definition "A digital control that uses immutable or append-only records to strengthen transaction traceability."@en .
+
+cpm:PublicDisclosureDashboard a owl:Class ;
+    rdfs:subClassOf
+        cpm:TransparencyControl,
+        cpm:DigitalControl,
+        [ a owl:Restriction ; owl:onProperty cpm:hasControlObjective ; owl:someValuesFrom cpm:TransparencyObjective ] ;
+    rdfs:label "Public disclosure dashboard"@en ;
+    skos:definition "A dashboard that discloses project performance, cost, or control information to public or institutional audiences."@en .
+
+cpm:CommunityMonitoring a owl:Class ;
+    rdfs:subClassOf
+        cpm:CommunityOversightControl,
+        cpm:DetectiveControl,
+        [ a owl:Restriction ; owl:onProperty cpm:hasControlObjective ; owl:someValuesFrom cpm:ParticipationObjective ],
+        [ a owl:Restriction ; owl:onProperty cpm:hasBarrier ; owl:someValuesFrom cpm:FearOfRetaliation ],
+        [ a owl:Restriction ; owl:onProperty cpm:hasBarrier ; owl:someValuesFrom cpm:LackOfFunding ] ;
+    rdfs:label "Community monitoring"@en ;
+    skos:definition "A social accountability control that enables community observation and reporting on project implementation."@en .
+
+cpm:EthicsTraining a owl:Class ;
+    rdfs:subClassOf
+        cpm:GovernanceControl,
+        cpm:PreventiveControl,
+        [ a owl:Restriction ; owl:onProperty cpm:hasBarrier ; owl:someValuesFrom cpm:CulturalAcceptanceOfCorruption ] ;
+    rdfs:label "Ethics training"@en ;
+    skos:definition "A training control used to build integrity awareness and shared expectations."@en .
+
+cpm:AntiCorruptionClause a owl:Class ;
+    rdfs:subClassOf
+        cpm:ContractualControl,
+        cpm:PreventiveControl,
+        [ a owl:Restriction ; owl:onProperty cpm:hasControlObjective ; owl:someValuesFrom cpm:AccountabilityObjective ] ;
+    rdfs:label "Anti-corruption clause"@en ;
+    skos:definition "A contractual clause establishing anti-corruption obligations, representations, or remedies."@en .
+
+cpm:IntegrityPact a owl:Class ;
+    rdfs:subClassOf
+        cpm:GovernanceControl,
+        cpm:TransparencyControl,
+        cpm:PreventiveControl,
+        [ a owl:Restriction ; owl:onProperty cpm:hasControlObjective ; owl:someValuesFrom cpm:TransparencyObjective ],
+        [ a owl:Restriction ; owl:onProperty cpm:hasControlObjective ; owl:someValuesFrom cpm:ParticipationObjective ] ;
+    rdfs:label "Integrity pact"@en ;
+    skos:definition "A pact or monitored commitment that binds parties to transparent and integrity-focused procurement conduct."@en .
+

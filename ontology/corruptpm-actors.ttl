@@ -1,0 +1,241 @@
+@prefix cpm: <https://w3id.org/corruptpm/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+cpm:corruptpm-actors a owl:Ontology ;
+    rdfs:label "corruptpm actors module"@en ;
+    owl:imports <corruptpm-core.ttl> .
+
+cpm:OversightRole a owl:Class ;
+    rdfs:subClassOf cpm:ActorRole ;
+    rdfs:label "Oversight role"@en ;
+    skos:definition "A role focused on review, supervision, monitoring, assurance, or accountability."@en .
+
+cpm:DecisionAuthorityRole a owl:Class ;
+    rdfs:subClassOf cpm:ActorRole ;
+    rdfs:label "Decision authority role"@en ;
+    skos:definition "A role empowered to approve, reject, prioritise, award, or certify project actions."@en .
+
+cpm:DeliveryRole a owl:Class ;
+    rdfs:subClassOf cpm:ActorRole ;
+    rdfs:label "Delivery role"@en ;
+    skos:definition "A role responsible for executing project work, supplying inputs, or administering delivery."@en .
+
+cpm:AdvisoryRole a owl:Class ;
+    rdfs:subClassOf cpm:ActorRole ;
+    rdfs:label "Advisory role"@en ;
+    skos:definition "A role that provides professional, technical, or strategic advice to project decision-makers."@en .
+
+cpm:FinancialControlRole a owl:Class ;
+    rdfs:subClassOf cpm:ActorRole ;
+    rdfs:label "Financial control role"@en ;
+    skos:definition "A role focused on cost estimation, certification, budgeting, or financial oversight."@en .
+
+cpm:PoliticalRole a owl:Class ;
+    rdfs:subClassOf cpm:ActorRole ;
+    rdfs:label "Political role"@en ;
+    skos:definition "A role exercised through political office, influence, or patronage networks."@en .
+
+cpm:CommunityOversightRole a owl:Class ;
+    rdfs:subClassOf cpm:ActorRole ;
+    rdfs:label "Community oversight role"@en ;
+    skos:definition "A role through which project-affected stakeholders observe, report on, or challenge project conduct."@en .
+
+cpm:ReportingRole a owl:Class ;
+    rdfs:subClassOf cpm:ActorRole ;
+    rdfs:label "Reporting role"@en ;
+    skos:definition "A role concerned with reporting concerns, disclosures, or evidence."@en .
+
+cpm:EnforcementRole a owl:Class ;
+    rdfs:subClassOf cpm:ActorRole ;
+    rdfs:label "Enforcement role"@en ;
+    skos:definition "A role focused on investigation, prosecution, adjudication, or sanction."@en .
+
+cpm:Client a owl:Class ;
+    rdfs:subClassOf
+        cpm:ProjectActor,
+        [ a owl:Restriction ; owl:onProperty cpm:hasActorRole ; owl:someValuesFrom cpm:DecisionAuthorityRole ] ;
+    rdfs:label "Client"@en ;
+    skos:definition "An actor that commissions, sponsors, or receives project delivery services."@en .
+
+cpm:PublicClient a owl:Class ;
+    rdfs:subClassOf cpm:Client ;
+    rdfs:label "Public client"@en ;
+    skos:definition "A public-sector client that sponsors or commissions project delivery."@en .
+
+cpm:PrivateClient a owl:Class ;
+    rdfs:subClassOf cpm:Client ;
+    rdfs:label "Private client"@en ;
+    skos:definition "A private-sector client that sponsors or commissions project delivery."@en .
+
+cpm:ProjectOwner a owl:Class ;
+    rdfs:subClassOf cpm:Client ;
+    rdfs:label "Project owner"@en ;
+    skos:definition "An actor with ownership responsibility for project assets, outcomes, or contractual obligations."@en .
+
+cpm:Contractor a owl:Class ;
+    rdfs:subClassOf
+        cpm:ProjectActor,
+        [ a owl:Restriction ; owl:onProperty cpm:hasActorRole ; owl:someValuesFrom cpm:DeliveryRole ] ;
+    rdfs:label "Contractor"@en ;
+    skos:definition "An actor contracted to execute project works or services."@en .
+
+cpm:MainContractor a owl:Class ;
+    rdfs:subClassOf cpm:Contractor ;
+    rdfs:label "Main contractor"@en ;
+    skos:definition "The lead contractor with primary contractual responsibility for project execution."@en .
+
+cpm:Subcontractor a owl:Class ;
+    rdfs:subClassOf cpm:Contractor ;
+    rdfs:label "Subcontractor"@en ;
+    skos:definition "A contractor engaged by another contractor to perform part of the work."@en .
+
+cpm:Consultant a owl:Class ;
+    rdfs:subClassOf
+        cpm:ProjectActor,
+        [ a owl:Restriction ; owl:onProperty cpm:hasActorRole ; owl:someValuesFrom cpm:AdvisoryRole ] ;
+    rdfs:label "Consultant"@en ;
+    skos:definition "An advisory or professional actor providing expert support to project actors."@en .
+
+cpm:DesignConsultant a owl:Class ;
+    rdfs:subClassOf cpm:Consultant ;
+    rdfs:label "Design consultant"@en ;
+    skos:definition "A consultant providing design, planning, or technical specification services."@en .
+
+cpm:SupervisionConsultant a owl:Class ;
+    rdfs:subClassOf
+        cpm:Consultant,
+        [ a owl:Restriction ; owl:onProperty cpm:hasActorRole ; owl:someValuesFrom cpm:OversightRole ] ;
+    rdfs:label "Supervision consultant"@en ;
+    skos:definition "A consultant providing supervision, contract administration, or inspection support."@en .
+
+cpm:Engineer a owl:Class ;
+    rdfs:subClassOf cpm:ProjectActor ;
+    rdfs:label "Engineer"@en ;
+    skos:definition "An engineering professional involved in design, delivery, supervision, or technical review."@en .
+
+cpm:ProjectManager a owl:Class ;
+    rdfs:subClassOf
+        cpm:ProjectActor,
+        [ a owl:Restriction ; owl:onProperty cpm:hasActorRole ; owl:someValuesFrom cpm:DecisionAuthorityRole ],
+        [ a owl:Restriction ; owl:onProperty cpm:hasActorRole ; owl:someValuesFrom cpm:DeliveryRole ] ;
+    rdfs:label "Project manager"@en ;
+    skos:definition "An actor responsible for coordinating project delivery, reporting, and decision support."@en .
+
+cpm:ProcurementOfficer a owl:Class ;
+    rdfs:subClassOf
+        cpm:ProjectActor,
+        [ a owl:Restriction ; owl:onProperty cpm:hasActorRole ; owl:someValuesFrom cpm:DecisionAuthorityRole ] ;
+    rdfs:label "Procurement officer"@en ;
+    skos:definition "An actor responsible for procurement planning, solicitation, evaluation support, and award administration."@en .
+
+cpm:ContractManager a owl:Class ;
+    rdfs:subClassOf
+        cpm:ProjectActor,
+        [ a owl:Restriction ; owl:onProperty cpm:hasActorRole ; owl:someValuesFrom cpm:DeliveryRole ],
+        [ a owl:Restriction ; owl:onProperty cpm:hasActorRole ; owl:someValuesFrom cpm:DecisionAuthorityRole ] ;
+    rdfs:label "Contract manager"@en ;
+    skos:definition "An actor responsible for contract administration, performance management, and change handling."@en .
+
+cpm:QuantitySurveyor a owl:Class ;
+    rdfs:subClassOf
+        cpm:ProjectActor,
+        [ a owl:Restriction ; owl:onProperty cpm:hasActorRole ; owl:someValuesFrom cpm:FinancialControlRole ] ;
+    rdfs:label "Quantity surveyor"@en ;
+    skos:definition "An actor responsible for cost estimation, quantity measurement, valuation, or certification support."@en .
+
+cpm:Supplier a owl:Class ;
+    rdfs:subClassOf cpm:ProjectActor ;
+    rdfs:label "Supplier"@en ;
+    skos:definition "An actor that supplies goods, materials, or inputs to a project."@en .
+
+cpm:Vendor a owl:Class ;
+    rdfs:subClassOf cpm:Supplier ;
+    rdfs:label "Vendor"@en ;
+    skos:definition "A supplier providing goods or services to the project ecosystem."@en .
+
+cpm:Regulator a owl:Class ;
+    rdfs:subClassOf
+        cpm:ProjectActor,
+        [ a owl:Restriction ; owl:onProperty cpm:hasActorRole ; owl:someValuesFrom cpm:OversightRole ] ;
+    rdfs:label "Regulator"@en ;
+    skos:definition "A public or delegated authority that regulates project conduct or sector compliance."@en .
+
+cpm:Inspector a owl:Class ;
+    rdfs:subClassOf
+        cpm:ProjectActor,
+        [ a owl:Restriction ; owl:onProperty cpm:hasActorRole ; owl:someValuesFrom cpm:OversightRole ] ;
+    rdfs:label "Inspector"@en ;
+    skos:definition "An actor responsible for site, quality, safety, or compliance inspection."@en .
+
+cpm:Auditor a owl:Class ;
+    rdfs:subClassOf
+        cpm:ProjectActor,
+        [ a owl:Restriction ; owl:onProperty cpm:hasActorRole ; owl:someValuesFrom cpm:OversightRole ],
+        [ a owl:Restriction ; owl:onProperty cpm:hasActorRole ; owl:someValuesFrom cpm:FinancialControlRole ] ;
+    rdfs:label "Auditor"@en ;
+    skos:definition "An actor responsible for audit, assurance, or forensic review."@en .
+
+cpm:Politician a owl:Class ;
+    rdfs:subClassOf
+        cpm:ProjectActor,
+        [ a owl:Restriction ; owl:onProperty cpm:hasActorRole ; owl:someValuesFrom cpm:PoliticalRole ] ;
+    rdfs:label "Politician"@en ;
+    skos:definition "An actor holding or exercising political office or influence relevant to a project."@en .
+
+cpm:PublicOfficial a owl:Class ;
+    rdfs:subClassOf
+        cpm:ProjectActor,
+        [ a owl:Restriction ; owl:onProperty cpm:hasActorRole ; owl:someValuesFrom cpm:DecisionAuthorityRole ] ;
+    rdfs:label "Public official"@en ;
+    skos:definition "A public-sector actor with administrative authority relevant to the project."@en .
+
+cpm:FundingAgency a owl:Class ;
+    rdfs:subClassOf
+        cpm:ProjectActor,
+        [ a owl:Restriction ; owl:onProperty cpm:hasActorRole ; owl:someValuesFrom cpm:OversightRole ] ;
+    rdfs:label "Funding agency"@en ;
+    skos:definition "An actor that finances, co-finances, or conditions project funding."@en .
+
+cpm:CommunityStakeholder a owl:Class ;
+    rdfs:subClassOf
+        cpm:ProjectActor,
+        [ a owl:Restriction ; owl:onProperty cpm:hasActorRole ; owl:someValuesFrom cpm:CommunityOversightRole ] ;
+    rdfs:label "Community stakeholder"@en ;
+    skos:definition "A community-based actor affected by, observing, or engaging with project outcomes."@en .
+
+cpm:EndUser a owl:Class ;
+    rdfs:subClassOf cpm:ProjectActor ;
+    rdfs:label "End user"@en ;
+    skos:definition "An actor expected to use or benefit from the delivered project asset or service."@en .
+
+cpm:Whistleblower a owl:Class ;
+    rdfs:subClassOf
+        cpm:ProjectActor,
+        [ a owl:Restriction ; owl:onProperty cpm:hasActorRole ; owl:someValuesFrom cpm:ReportingRole ] ;
+    rdfs:label "Whistleblower"@en ;
+    skos:definition "An actor who discloses suspected corruption, fraud, or misconduct."@en .
+
+cpm:AntiCorruptionAgency a owl:Class ;
+    rdfs:subClassOf
+        cpm:ProjectActor,
+        [ a owl:Restriction ; owl:onProperty cpm:hasActorRole ; owl:someValuesFrom cpm:OversightRole ],
+        [ a owl:Restriction ; owl:onProperty cpm:hasActorRole ; owl:someValuesFrom cpm:EnforcementRole ] ;
+    rdfs:label "Anti-corruption agency"@en ;
+    skos:definition "An institution tasked with corruption prevention, detection, investigation, or enforcement."@en .
+
+cpm:CourtOrTribunal a owl:Class ;
+    rdfs:subClassOf
+        cpm:ProjectActor,
+        [ a owl:Restriction ; owl:onProperty cpm:hasActorRole ; owl:someValuesFrom cpm:EnforcementRole ] ;
+    rdfs:label "Court or tribunal"@en ;
+    skos:definition "A judicial or quasi-judicial actor that adjudicates project-related disputes or corruption matters."@en .
+
+cpm:LawEnforcementAgency a owl:Class ;
+    rdfs:subClassOf
+        cpm:ProjectActor,
+        [ a owl:Restriction ; owl:onProperty cpm:hasActorRole ; owl:someValuesFrom cpm:EnforcementRole ] ;
+    rdfs:label "Law enforcement agency"@en ;
+    skos:definition "An enforcement actor responsible for investigation or criminal response."@en .
+

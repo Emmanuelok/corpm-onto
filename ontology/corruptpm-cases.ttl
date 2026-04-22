@@ -1,0 +1,30 @@
+@prefix cpm: <https://w3id.org/corruptpm/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+cpm:corruptpm-cases a owl:Ontology ;
+    rdfs:label "corruptpm cases module"@en ;
+    owl:imports <corruptpm-core.ttl> .
+
+cpm:SyntheticCaseStudy a owl:Class ;
+    rdfs:subClassOf cpm:CaseStudy ;
+    rdfs:label "Synthetic case study"@en ;
+    skos:definition "A clearly marked non-real case study created for testing, demonstration, education, or ontology population."@en ;
+    skos:scopeNote "Synthetic cases must never be presented as real allegations."@en .
+
+cpm:DocumentaryEvidence a owl:Class ;
+    rdfs:subClassOf cpm:Evidence ;
+    rdfs:label "Documentary evidence"@en ;
+    skos:definition "Evidence captured in a document, record, registry extract, report, invoice, or submission."@en .
+
+cpm:AnalyticEvidence a owl:Class ;
+    rdfs:subClassOf cpm:Evidence ;
+    rdfs:label "Analytic evidence"@en ;
+    skos:definition "Evidence generated through analytics, pattern detection, or data-derived interpretation."@en .
+
+cpm:TestimonialEvidence a owl:Class ;
+    rdfs:subClassOf cpm:Evidence ;
+    rdfs:label "Testimonial evidence"@en ;
+    skos:definition "Evidence derived from witness, whistleblower, or stakeholder testimony."@en .
+

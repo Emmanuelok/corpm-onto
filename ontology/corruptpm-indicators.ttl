@@ -1,0 +1,179 @@
+@prefix cpm: <https://w3id.org/corruptpm/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+cpm:corruptpm-indicators a owl:Ontology ;
+    rdfs:label "corruptpm indicators module"@en ;
+    owl:imports <corruptpm-core.ttl>, <corruptpm-causes-vulnerabilities.ttl> .
+
+cpm:BidConcentrationIndicator a owl:Class ;
+    rdfs:subClassOf cpm:Indicator ;
+    rdfs:label "Bid concentration indicator"@en ;
+    skos:definition "An indicator capturing whether awards or participation are concentrated among few firms."@en .
+
+cpm:ChangeOrderRateIndicator a owl:Class ;
+    rdfs:subClassOf cpm:Indicator ;
+    rdfs:label "Change order rate indicator"@en ;
+    skos:definition "An indicator capturing the frequency or accumulation of change orders or variations."@en .
+
+cpm:PaymentAnomalyIndicator a owl:Class ;
+    rdfs:subClassOf cpm:Indicator ;
+    rdfs:label "Payment anomaly indicator"@en ;
+    skos:definition "An indicator capturing unusual payment timing, sequencing, routing, or amount patterns."@en .
+
+cpm:InspectionLagIndicator a owl:Class ;
+    rdfs:subClassOf cpm:Indicator ;
+    rdfs:label "Inspection lag indicator"@en ;
+    skos:definition "An indicator capturing delay between implementation, inspection, and reporting."@en .
+
+cpm:DocumentationCompletenessIndicator a owl:Class ;
+    rdfs:subClassOf cpm:Indicator ;
+    rdfs:label "Documentation completeness indicator"@en ;
+    skos:definition "An indicator capturing the presence, completeness, and quality of expected records."@en .
+
+cpm:SingleBidder a owl:Class ;
+    rdfs:subClassOf
+        cpm:RedFlag,
+        [ a owl:Restriction ; owl:onProperty cpm:hasRiskFactor ; owl:someValuesFrom cpm:InadequateCompetition ] ;
+    rdfs:label "Single bidder"@en ;
+    skos:definition "A red flag in which only one bid is received in a context where competition would normally be expected."@en .
+
+cpm:UnusuallyShortTenderPeriod a owl:Class ;
+    rdfs:subClassOf
+        cpm:RedFlag,
+        [ a owl:Restriction ; owl:onProperty cpm:hasRiskFactor ; owl:someValuesFrom cpm:OpaqueProcurement ] ;
+    rdfs:label "Unusually short tender period"@en ;
+    skos:definition "A red flag in which the tender period is unusually short relative to project complexity or market practice."@en .
+
+cpm:RepeatedContractAwardsToSameFirm a owl:Class ;
+    rdfs:subClassOf
+        cpm:RedFlag,
+        cpm:BidConcentrationIndicator,
+        [ a owl:Restriction ; owl:onProperty cpm:hasRiskFactor ; owl:someValuesFrom cpm:InadequateCompetition ] ;
+    rdfs:label "Repeated contract awards to same firm"@en ;
+    skos:definition "A red flag in which one firm repeatedly wins comparable contracts without a clear legitimate explanation."@en .
+
+cpm:BidPricesTooClose a owl:Class ;
+    rdfs:subClassOf
+        cpm:RedFlag,
+        [ a owl:Restriction ; owl:onProperty cpm:hasRiskFactor ; owl:someValuesFrom cpm:InadequateCompetition ] ;
+    rdfs:label "Bid prices too close"@en ;
+    skos:definition "A red flag in which bid prices cluster suspiciously tightly, suggesting coordination or cover bidding."@en .
+
+cpm:WinningBidJustBelowBudget a owl:Class ;
+    rdfs:subClassOf cpm:RedFlag ;
+    rdfs:label "Winning bid just below budget"@en ;
+    skos:definition "A red flag in which the winning bid is narrowly below the budget or engineer's estimate in a suspicious pattern."@en .
+
+cpm:FrequentVariationOrders a owl:Class ;
+    rdfs:subClassOf
+        cpm:RedFlag,
+        cpm:ChangeOrderRateIndicator,
+        [ a owl:Restriction ; owl:onProperty cpm:hasRiskFactor ; owl:someValuesFrom cpm:PoorContractManagement ] ;
+    rdfs:label "Frequent variation orders"@en ;
+    skos:definition "A red flag in which variations or change orders occur unusually frequently."@en .
+
+cpm:LargeCostIncreaseAfterAward a owl:Class ;
+    rdfs:subClassOf
+        cpm:RedFlag,
+        cpm:ChangeOrderRateIndicator ;
+    rdfs:label "Large cost increase after award"@en ;
+    skos:definition "A red flag in which the contract price increases materially after award without a convincing justification."@en .
+
+cpm:PoorDocumentation a owl:Class ;
+    rdfs:subClassOf
+        cpm:RedFlag,
+        cpm:DocumentationCompletenessIndicator,
+        [ a owl:Restriction ; owl:onProperty cpm:hasRiskFactor ; owl:someValuesFrom cpm:PoorRecordKeeping ] ;
+    rdfs:label "Poor documentation"@en ;
+    skos:definition "A red flag in which expected records are missing, inconsistent, or incomplete."@en .
+
+cpm:SplitContracts a owl:Class ;
+    rdfs:subClassOf cpm:RedFlag ;
+    rdfs:label "Split contracts"@en ;
+    skos:definition "A red flag in which work is fragmented into smaller contracts to avoid thresholds or scrutiny."@en .
+
+cpm:VagueTechnicalSpecifications a owl:Class ;
+    rdfs:subClassOf cpm:RedFlag ;
+    rdfs:label "Vague technical specifications"@en ;
+    skos:definition "A red flag in which specifications are too vague to support fair, testable, or comparable competition."@en .
+
+cpm:TailoredSpecifications a owl:Class ;
+    rdfs:subClassOf cpm:RedFlag ;
+    rdfs:label "Tailored specifications"@en ;
+    skos:definition "A red flag in which specifications appear tailored to favour a particular bidder, product, or consultant."@en .
+
+cpm:MissingConflictOfInterestDeclarations a owl:Class ;
+    rdfs:subClassOf cpm:RedFlag ;
+    rdfs:label "Missing conflict of interest declarations"@en ;
+    skos:definition "A red flag in which required declarations are absent, incomplete, or unverifiable."@en .
+
+cpm:AbnormalPaymentPattern a owl:Class ;
+    rdfs:subClassOf
+        cpm:RedFlag,
+        cpm:PaymentAnomalyIndicator,
+        [ a owl:Restriction ; owl:onProperty cpm:hasRiskFactor ; owl:someValuesFrom cpm:PoorRecordKeeping ] ;
+    rdfs:label "Abnormal payment pattern"@en ;
+    skos:definition "A red flag in which payment timing, amount, or routing behaves unexpectedly."@en .
+
+cpm:FrontLoadedPayments a owl:Class ;
+    rdfs:subClassOf
+        cpm:RedFlag,
+        cpm:PaymentAnomalyIndicator ;
+    rdfs:label "Front-loaded payments"@en ;
+    skos:definition "A red flag in which unusually large payments occur early relative to certified progress."@en .
+
+cpm:DelayedInspectionReports a owl:Class ;
+    rdfs:subClassOf
+        cpm:RedFlag,
+        cpm:InspectionLagIndicator ;
+    rdfs:label "Delayed inspection reports"@en ;
+    skos:definition "A red flag in which inspection or supervision reports are delayed beyond credible operational explanations."@en .
+
+cpm:IdenticalBidDocuments a owl:Class ;
+    rdfs:subClassOf
+        cpm:RedFlag,
+        [ a owl:Restriction ; owl:onProperty cpm:hasRiskFactor ; owl:someValuesFrom cpm:InadequateCompetition ] ;
+    rdfs:label "Identical bid documents"@en ;
+    skos:definition "A red flag in which separate bids contain highly similar formatting, wording, or errors."@en .
+
+cpm:UnusualSubcontractingPattern a owl:Class ;
+    rdfs:subClassOf cpm:RedFlag ;
+    rdfs:label "Unusual subcontracting pattern"@en ;
+    skos:definition "A red flag in which subcontracting relationships or chains appear inconsistent with market or delivery logic."@en .
+
+cpm:ExcessiveUseOfEmergencyProcurement a owl:Class ;
+    rdfs:subClassOf
+        cpm:RedFlag,
+        [ a owl:Restriction ; owl:onProperty cpm:hasRiskFactor ; owl:someValuesFrom cpm:EmergencyProcurement ] ;
+    rdfs:label "Excessive use of emergency procurement"@en ;
+    skos:definition "A red flag in which emergency procurement procedures are used repeatedly or beyond credible emergency need."@en .
+
+cpm:LowCompetition a owl:Class ;
+    rdfs:subClassOf
+        cpm:RedFlag,
+        [ a owl:Restriction ; owl:onProperty cpm:hasRiskFactor ; owl:someValuesFrom cpm:InadequateCompetition ] ;
+    rdfs:label "Low competition"@en ;
+    skos:definition "A red flag indicating a pattern of weak or unusually constrained competition."@en .
+
+cpm:InflatedUnitPrices a owl:Class ;
+    rdfs:subClassOf cpm:RedFlag ;
+    rdfs:label "Inflated unit prices"@en ;
+    skos:definition "A red flag in which unit prices appear materially above defensible market benchmarks."@en .
+
+cpm:UnexplainedScopeChanges a owl:Class ;
+    rdfs:subClassOf cpm:RedFlag ;
+    rdfs:label "Unexplained scope changes"@en ;
+    skos:definition "A red flag in which project scope changes are weakly justified, poorly documented, or inconsistent with need."@en .
+
+cpm:RepeatedChangeOrders a owl:Class ;
+    rdfs:subClassOf cpm:RedFlag ;
+    rdfs:label "Repeated change orders"@en ;
+    skos:definition "A red flag in which change orders recur in a way that suggests manipulation rather than legitimate adaptation."@en .
+
+cpm:QualityDefectsDespiteCertification a owl:Class ;
+    rdfs:subClassOf cpm:RedFlag ;
+    rdfs:label "Quality defects despite certification"@en ;
+    skos:definition "A red flag in which visible quality defects appear despite prior certification or approval."@en .
+

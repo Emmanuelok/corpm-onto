@@ -1,0 +1,119 @@
+@prefix cpm: <https://w3id.org/corruptpm/> .
+@prefix cpmshape: <https://w3id.org/corruptpm/shapes/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+cpmshape:OntologyClassMetadataShape a sh:NodeShape ;
+    sh:targetClass owl:Class ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:minCount 1 ;
+        sh:message "Every ontology class should have an rdfs:label."@en
+    ] ;
+    sh:property [
+        sh:path skos:definition ;
+        sh:minCount 1 ;
+        sh:message "Every ontology class should have a skos:definition."@en
+    ] .
+
+cpmshape:CorruptionEventShape a sh:NodeShape ;
+    sh:targetClass cpm:CorruptionEvent ;
+    sh:property [
+        sh:path cpm:hasCorruptAct ;
+        sh:minCount 1 ;
+        sh:message "Every CorruptionEvent must have at least one corrupt act."@en
+    ] ;
+    sh:property [
+        sh:path cpm:occursInPhase ;
+        sh:minCount 1 ;
+        sh:message "Every CorruptionEvent must occur in at least one project phase."@en
+    ] ;
+    sh:property [
+        sh:path cpm:involvesActor ;
+        sh:minCount 1 ;
+        sh:message "Every CorruptionEvent must involve at least one actor."@en
+    ] ;
+    sh:property [
+        sh:path cpm:hasImpact ;
+        sh:minCount 1 ;
+        sh:message "Every CorruptionEvent must have at least one impact."@en
+    ] .
+
+cpmshape:ProjectActorLabelShape a sh:NodeShape ;
+    sh:targetClass cpm:ProjectActor ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:minCount 1 ;
+        sh:message "Every ProjectActor instance should have a label."@en
+    ] .
+
+cpmshape:SyntheticCaseShape a sh:NodeShape ;
+    sh:targetClass cpm:SyntheticCaseStudy ;
+    sh:property [
+        sh:path cpm:caseName ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+        sh:message "Every synthetic case should include a caseName."@en
+    ] ;
+    sh:property [
+        sh:path cpm:description ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+        sh:message "Every synthetic case should include a description."@en
+    ] .
+
+cpmshape:IndicatorInstanceShape a sh:NodeShape ;
+    sh:targetObjectsOf cpm:hasIndicator, cpm:hasRedFlag ;
+    sh:property [
+        sh:path cpm:confidenceScore ;
+        sh:minCount 1 ;
+        sh:datatype xsd:decimal ;
+        sh:minInclusive 0 ;
+        sh:maxInclusive 1 ;
+        sh:message "Indicators and red flags used in instance data must include a confidenceScore between 0 and 1."@en
+    ] .
+
+cpmshape:RiskScoreShape a sh:NodeShape ;
+    sh:targetSubjectsOf cpm:riskScore ;
+    sh:property [
+        sh:path cpm:riskScore ;
+        sh:datatype xsd:decimal ;
+        sh:minInclusive 0 ;
+        sh:maxInclusive 100 ;
+        sh:message "riskScore values must be decimal values between 0 and 100."@en
+    ] .
+
+cpmshape:LikelihoodScoreShape a sh:NodeShape ;
+    sh:targetSubjectsOf cpm:likelihoodScore ;
+    sh:property [
+        sh:path cpm:likelihoodScore ;
+        sh:datatype xsd:decimal ;
+        sh:minInclusive 0 ;
+        sh:maxInclusive 1 ;
+        sh:message "likelihoodScore values must be decimal values between 0 and 1."@en
+    ] .
+
+cpmshape:ImpactScoreShape a sh:NodeShape ;
+    sh:targetSubjectsOf cpm:impactScore ;
+    sh:property [
+        sh:path cpm:impactScore ;
+        sh:datatype xsd:decimal ;
+        sh:minInclusive 0 ;
+        sh:maxInclusive 1 ;
+        sh:message "impactScore values must be decimal values between 0 and 1."@en
+    ] .
+
+cpmshape:ConfidenceScoreShape a sh:NodeShape ;
+    sh:targetSubjectsOf cpm:confidenceScore ;
+    sh:property [
+        sh:path cpm:confidenceScore ;
+        sh:datatype xsd:decimal ;
+        sh:minInclusive 0 ;
+        sh:maxInclusive 1 ;
+        sh:message "confidenceScore values must be decimal values between 0 and 1."@en
+    ] .
+

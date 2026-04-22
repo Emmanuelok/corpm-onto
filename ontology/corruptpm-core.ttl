@@ -1,0 +1,555 @@
+@prefix cpm: <https://w3id.org/corruptpm/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+cpm:corruptpm-core a owl:Ontology ;
+    rdfs:label "corruptpm core ontology module"@en ;
+    dcterms:title "corruptpm core ontology module"@en ;
+    dcterms:description "Foundational classes and properties for modelling corruption in project management."@en ;
+    owl:versionInfo "0.1.0" ;
+    dcterms:license <https://spdx.org/licenses/Apache-2.0.html> .
+
+cpm:CorruptionEvent a owl:Class ;
+    rdfs:label "Corruption event"@en ;
+    skos:definition "An event-centred representation of suspected, observed, or documented corruption in a project management context."@en ;
+    skos:scopeNote "Use this class to connect actors, roles, vulnerabilities, acts, phases, impacts, indicators, controls, evidence, and case material into a coherent analytical unit."@en .
+
+cpm:CorruptAct a owl:Class ;
+    rdfs:label "Corrupt act"@en ;
+    skos:definition "An improper act, scheme, or behaviour through which an actor seeks undue private or political benefit in a project context."@en ;
+    skos:scopeNote "Specific corrupt acts are modeled as subclasses so they can be extended without refactoring the entire ontology."@en .
+
+cpm:Project a owl:Class ;
+    rdfs:label "Project"@en ;
+    skos:definition "A temporary or programmatic intervention undertaken to deliver assets, services, infrastructure, or other project outcomes."@en ;
+    skos:scopeNote "The class is intentionally broad so that construction, infrastructure, software, social, and other project domains can reuse the ontology."@en .
+
+cpm:ProjectPhase a owl:Class ;
+    rdfs:label "Project phase"@en ;
+    skos:definition "A lifecycle phase in which project decisions, activities, or corruption risks can arise."@en ;
+    skos:scopeNote "Phase classes support lifecycle-based analysis and can be specialised for domain-specific project delivery models."@en .
+
+cpm:ContractStage a owl:Class ;
+    rdfs:label "Contract stage"@en ;
+    skos:definition "A stage in the contractual or procurement cycle associated with project delivery and oversight."@en ;
+    skos:scopeNote "Use contract stages alongside lifecycle phases when a project is examined through procurement or contract administration lenses."@en .
+
+cpm:ProjectActor a owl:Class ;
+    rdfs:label "Project actor"@en ;
+    skos:definition "A person, organisation, public body, private firm, or community participant that has a role in project delivery, oversight, or response."@en ;
+    skos:scopeNote "Actors can be operational, managerial, regulatory, political, judicial, or community-facing."@en .
+
+cpm:ActorRole a owl:Class ;
+    rdfs:label "Actor role"@en ;
+    skos:definition "A role played by an actor in decision-making, delivery, oversight, enforcement, reporting, or community participation."@en ;
+    skos:scopeNote "Roles are modelled separately from actor types so that the same actor can occupy different roles across projects or events."@en .
+
+cpm:RiskFactor a owl:Class ;
+    rdfs:label "Risk factor"@en ;
+    skos:definition "A condition, pattern, or circumstance that raises the likelihood or severity of corruption in project management."@en ;
+    skos:scopeNote "Risk factors can be structural, contextual, institutional, behavioural, or technical."@en .
+
+cpm:Cause a owl:Class ;
+    rdfs:label "Cause"@en ;
+    rdfs:subClassOf cpm:RiskFactor ;
+    skos:definition "A causal condition that helps explain why corruption emerges or persists in a project environment."@en .
+
+cpm:Vulnerability a owl:Class ;
+    rdfs:label "Vulnerability"@en ;
+    rdfs:subClassOf cpm:RiskFactor ;
+    skos:definition "A weakness or exposure in a project system, control environment, or process that can be exploited for corrupt benefit."@en .
+
+cpm:Indicator a owl:Class ;
+    rdfs:label "Indicator"@en ;
+    skos:definition "A measurable, observable, or inferential sign that can support corruption risk assessment, detection, or explanation."@en ;
+    skos:scopeNote "Indicators can be quantitative metrics, qualitative markers, or derived analytics features."@en .
+
+cpm:RedFlag a owl:Class ;
+    rdfs:label "Red flag"@en ;
+    rdfs:subClassOf cpm:Indicator ;
+    skos:definition "An indicator that signals an elevated possibility of corruption, collusion, fraud, or control failure."@en ;
+    skos:scopeNote "A red flag is a warning sign, not proof of wrongdoing."@en .
+
+cpm:Impact a owl:Class ;
+    rdfs:label "Impact"@en ;
+    skos:definition "A project, governance, social, legal, financial, or service consequence associated with a corruption event or corrupt act."@en .
+
+cpm:AntiCorruptionControl a owl:Class ;
+    rdfs:label "Anti-corruption control"@en ;
+    skos:definition "A preventive, detective, corrective, punitive, digital, contractual, or governance mechanism intended to reduce corruption risk or harm."@en ;
+    skos:scopeNote "Controls may be modelled as types, implementations, or project-specific deployments depending on the analysis need."@en .
+
+cpm:ControlObjective a owl:Class ;
+    rdfs:label "Control objective"@en ;
+    skos:definition "An intended anti-corruption outcome such as prevention, detection, traceability, accountability, or transparency."@en .
+
+cpm:Barrier a owl:Class ;
+    rdfs:label "Barrier"@en ;
+    skos:definition "A condition that inhibits the adoption, implementation, or effectiveness of an anti-corruption control."@en .
+
+cpm:Evidence a owl:Class ;
+    rdfs:label "Evidence"@en ;
+    skos:definition "A document, record, testimonial, audit output, analytic signal, or other evidentiary artefact linked to a corruption event or case study."@en .
+
+cpm:CaseStudy a owl:Class ;
+    rdfs:label "Case study"@en ;
+    skos:definition "A bounded analytical case used to document, compare, or teach patterns of corruption and anti-corruption intervention."@en ;
+    skos:scopeNote "Synthetic and real case studies can both populate the ontology if provenance is made explicit."@en .
+
+cpm:Jurisdiction a owl:Class ;
+    rdfs:label "Jurisdiction"@en ;
+    skos:definition "A legal, administrative, sectoral, or project-specific jurisdiction relevant to a project, case, or governance setting."@en .
+
+cpm:GovernanceInstrument a owl:Class ;
+    rdfs:label "Governance instrument"@en ;
+    skos:definition "A legal, policy, contractual, procedural, or technical instrument that shapes project governance or anti-corruption practice."@en .
+
+cpm:Sanction a owl:Class ;
+    rdfs:label "Sanction"@en ;
+    skos:definition "A legal, administrative, contractual, or market consequence imposed in response to corruption or control breach."@en .
+
+cpm:DetectionMechanism a owl:Class ;
+    rdfs:label "Detection mechanism"@en ;
+    skos:definition "A mechanism used to detect corruption, fraud, collusion, or related control failures."@en .
+
+cpm:ReportingMechanism a owl:Class ;
+    rdfs:label "Reporting mechanism"@en ;
+    skos:definition "A channel or mechanism through which corruption concerns, evidence, or complaints can be reported."@en .
+
+cpm:ProcurementMethod a owl:Class ;
+    rdfs:label "Procurement method"@en ;
+    skos:definition "A method used to solicit, evaluate, and award project work, goods, or services."@en .
+
+cpm:AssetOrResource a owl:Class ;
+    rdfs:label "Asset or resource"@en ;
+    skos:definition "A physical, financial, informational, contractual, or administrative asset that can be targeted, diverted, manipulated, or protected."@en .
+
+cpm:DecisionPoint a owl:Class ;
+    rdfs:label "Decision point"@en ;
+    skos:definition "A point in project governance or delivery where discretion, approval, certification, ranking, or selection materially affects outcomes."@en .
+
+cpm:ProjectManagementProcess a owl:Class ;
+    rdfs:label "Project management process"@en ;
+    skos:definition "A repeatable project management, procurement, contract administration, monitoring, or oversight process."@en .
+
+cpm:NationalJurisdiction a owl:Class ;
+    rdfs:subClassOf cpm:Jurisdiction ;
+    rdfs:label "National jurisdiction"@en ;
+    skos:definition "A country-level legal or administrative jurisdiction relevant to project governance."@en .
+
+cpm:SubnationalJurisdiction a owl:Class ;
+    rdfs:subClassOf cpm:Jurisdiction ;
+    rdfs:label "Subnational jurisdiction"@en ;
+    skos:definition "A state, provincial, municipal, or regional jurisdiction relevant to project governance."@en .
+
+cpm:ProjectSpecificJurisdiction a owl:Class ;
+    rdfs:subClassOf cpm:Jurisdiction ;
+    rdfs:label "Project-specific jurisdiction"@en ;
+    skos:definition "A project-specific governance or contractual jurisdiction such as a concession area or special purpose entity boundary."@en .
+
+cpm:ProcurementLaw a owl:Class ;
+    rdfs:subClassOf cpm:GovernanceInstrument ;
+    rdfs:label "Procurement law"@en ;
+    skos:definition "A legal instrument governing procurement procedure, competition, disclosure, and award."@en .
+
+cpm:EngineeringStandard a owl:Class ;
+    rdfs:subClassOf cpm:GovernanceInstrument ;
+    rdfs:label "Engineering standard"@en ;
+    skos:definition "A technical or engineering standard used to define acceptable design, quality, safety, or inspection practice."@en .
+
+cpm:ContractTemplate a owl:Class ;
+    rdfs:subClassOf cpm:GovernanceInstrument ;
+    rdfs:label "Contract template"@en ;
+    skos:definition "A contractual instrument or model form used to structure project rights, obligations, and controls."@en .
+
+cpm:AuditMandate a owl:Class ;
+    rdfs:subClassOf cpm:GovernanceInstrument ;
+    rdfs:label "Audit mandate"@en ;
+    skos:definition "A governance instrument that authorises audit scope, access, powers, or reporting obligations."@en .
+
+cpm:IntegrityFramework a owl:Class ;
+    rdfs:subClassOf cpm:GovernanceInstrument ;
+    rdfs:label "Integrity framework"@en ;
+    skos:definition "A policy or governance framework that establishes anti-corruption expectations, controls, and response arrangements."@en .
+
+cpm:AdministrativeSanction a owl:Class ;
+    rdfs:subClassOf cpm:Sanction ;
+    rdfs:label "Administrative sanction"@en ;
+    skos:definition "A sanction imposed through administrative or regulatory processes rather than through criminal adjudication."@en .
+
+cpm:CivilPenalty a owl:Class ;
+    rdfs:subClassOf cpm:Sanction ;
+    rdfs:label "Civil penalty"@en ;
+    skos:definition "A civil or contractual penalty imposed in response to corruption-related harm or breach."@en .
+
+cpm:CriminalPenalty a owl:Class ;
+    rdfs:subClassOf cpm:Sanction ;
+    rdfs:label "Criminal penalty"@en ;
+    skos:definition "A criminal justice sanction imposed following corruption-related conviction or plea."@en .
+
+cpm:DebarmentSanction a owl:Class ;
+    rdfs:subClassOf cpm:Sanction ;
+    rdfs:label "Debarment sanction"@en ;
+    skos:definition "A sanction that excludes an actor from future procurement or project participation for a defined period."@en .
+
+cpm:AuditReviewMechanism a owl:Class ;
+    rdfs:subClassOf cpm:DetectionMechanism ;
+    rdfs:label "Audit review mechanism"@en ;
+    skos:definition "A detection mechanism based on planned or ad hoc audit review."@en .
+
+cpm:DataAnalyticsMechanism a owl:Class ;
+    rdfs:subClassOf cpm:DetectionMechanism ;
+    rdfs:label "Data analytics mechanism"@en ;
+    skos:definition "A detection mechanism based on digital traceability, anomaly detection, or pattern analytics."@en .
+
+cpm:CommunityMonitoringMechanism a owl:Class ;
+    rdfs:subClassOf cpm:DetectionMechanism ;
+    rdfs:label "Community monitoring mechanism"@en ;
+    skos:definition "A detection mechanism based on direct observation, complaint, or reporting from project-affected stakeholders."@en .
+
+cpm:AnonymousHotline a owl:Class ;
+    rdfs:subClassOf cpm:ReportingMechanism ;
+    rdfs:label "Anonymous hotline"@en ;
+    skos:definition "A reporting channel designed to enable confidential or anonymous disclosures."@en .
+
+cpm:CitizenComplaintPortal a owl:Class ;
+    rdfs:subClassOf cpm:ReportingMechanism ;
+    rdfs:label "Citizen complaint portal"@en ;
+    skos:definition "A digital reporting mechanism through which citizens or end users can submit complaints or evidence."@en .
+
+cpm:InternalEscalationChannel a owl:Class ;
+    rdfs:subClassOf cpm:ReportingMechanism ;
+    rdfs:label "Internal escalation channel"@en ;
+    skos:definition "An internal project or organisational reporting route for escalating suspected misconduct or control failure."@en .
+
+cpm:OpenTendering a owl:Class ;
+    rdfs:subClassOf cpm:ProcurementMethod ;
+    rdfs:label "Open tendering"@en ;
+    skos:definition "A procurement method based on open competition and public solicitation."@en .
+
+cpm:RestrictedTendering a owl:Class ;
+    rdfs:subClassOf cpm:ProcurementMethod ;
+    rdfs:label "Restricted tendering"@en ;
+    skos:definition "A procurement method that limits bidding to invited or prequalified participants."@en .
+
+cpm:SingleSourceProcurement a owl:Class ;
+    rdfs:subClassOf cpm:ProcurementMethod ;
+    rdfs:label "Single-source procurement"@en ;
+    skos:definition "A procurement method that relies on a sole supplier or direct award."@en .
+
+cpm:EmergencyProcurementMethod a owl:Class ;
+    rdfs:subClassOf cpm:ProcurementMethod ;
+    rdfs:label "Emergency procurement method"@en ;
+    skos:definition "A procurement method used under urgency or emergency conditions, often with compressed timelines."@en .
+
+cpm:FrameworkAgreement a owl:Class ;
+    rdfs:subClassOf cpm:ProcurementMethod ;
+    rdfs:label "Framework agreement"@en ;
+    skos:definition "A procurement method based on a framework arrangement for future call-offs or task orders."@en .
+
+cpm:BudgetAllocation a owl:Class ;
+    rdfs:subClassOf cpm:AssetOrResource ;
+    rdfs:label "Budget allocation"@en ;
+    skos:definition "A budgeted financial allocation associated with a project or project component."@en .
+
+cpm:LandParcel a owl:Class ;
+    rdfs:subClassOf cpm:AssetOrResource ;
+    rdfs:label "Land parcel"@en ;
+    skos:definition "A landholding, right, or parcel associated with a project footprint or compensation process."@en .
+
+cpm:ProjectInformation a owl:Class ;
+    rdfs:subClassOf cpm:AssetOrResource ;
+    rdfs:label "Project information"@en ;
+    skos:definition "Project documents, records, designs, prices, or other information assets."@en .
+
+cpm:PaymentCertificate a owl:Class ;
+    rdfs:subClassOf cpm:AssetOrResource ;
+    rdfs:label "Payment certificate"@en ;
+    skos:definition "A certification artefact that authorises or supports project payment."@en .
+
+cpm:InspectionReport a owl:Class ;
+    rdfs:subClassOf cpm:AssetOrResource ;
+    rdfs:label "Inspection report"@en ;
+    skos:definition "A report produced through inspection, supervision, or quality review."@en .
+
+cpm:ConstructionMaterial a owl:Class ;
+    rdfs:subClassOf cpm:AssetOrResource ;
+    rdfs:label "Construction material"@en ;
+    skos:definition "A material or product used in project construction, implementation, or maintenance."@en .
+
+cpm:NeedsAssessmentDecisionPoint a owl:Class ;
+    rdfs:subClassOf cpm:DecisionPoint ;
+    rdfs:label "Needs assessment decision point"@en ;
+    skos:definition "A decision point where project needs, options, or priorities are defined or approved."@en .
+
+cpm:BidEvaluationDecisionPoint a owl:Class ;
+    rdfs:subClassOf cpm:DecisionPoint ;
+    rdfs:label "Bid evaluation decision point"@en ;
+    skos:definition "A decision point where bids are ranked, interpreted, or selected."@en .
+
+cpm:VariationApprovalDecisionPoint a owl:Class ;
+    rdfs:subClassOf cpm:DecisionPoint ;
+    rdfs:label "Variation approval decision point"@en ;
+    skos:definition "A decision point where project changes, claims, or variation orders are approved or rejected."@en .
+
+cpm:PaymentCertificationDecisionPoint a owl:Class ;
+    rdfs:subClassOf cpm:DecisionPoint ;
+    rdfs:label "Payment certification decision point"@en ;
+    skos:definition "A decision point where project work, quantities, or invoices are certified for payment."@en .
+
+cpm:NeedsAssessmentProcess a owl:Class ;
+    rdfs:subClassOf cpm:ProjectManagementProcess ;
+    rdfs:label "Needs assessment process"@en ;
+    skos:definition "A process used to define project need, scope, or strategic justification."@en .
+
+cpm:BidEvaluationProcess a owl:Class ;
+    rdfs:subClassOf cpm:ProjectManagementProcess ;
+    rdfs:label "Bid evaluation process"@en ;
+    skos:definition "A process used to assess bids, proposals, or tenders for selection and award."@en .
+
+cpm:ContractAdministrationProcess a owl:Class ;
+    rdfs:subClassOf cpm:ProjectManagementProcess ;
+    rdfs:label "Contract administration process"@en ;
+    skos:definition "A process used to administer contractual rights, obligations, changes, and performance."@en .
+
+cpm:ChangeManagementProcess a owl:Class ;
+    rdfs:subClassOf cpm:ProjectManagementProcess ;
+    rdfs:label "Change management process"@en ;
+    skos:definition "A process used to review, justify, approve, and record project changes."@en .
+
+cpm:QualityInspectionProcess a owl:Class ;
+    rdfs:subClassOf cpm:ProjectManagementProcess ;
+    rdfs:label "Quality inspection process"@en ;
+    skos:definition "A process used to inspect, certify, or verify quality and conformance."@en .
+
+cpm:MonitoringAndEvaluationProcess a owl:Class ;
+    rdfs:subClassOf cpm:ProjectManagementProcess ;
+    rdfs:label "Monitoring and evaluation process"@en ;
+    skos:definition "A process used to monitor progress, analyse performance, and evaluate project outcomes."@en .
+
+cpm:involvesActor a owl:ObjectProperty ;
+    rdfs:label "involves actor"@en ;
+    skos:definition "Links a corruption event to one or more participating, affected, or responding actors."@en ;
+    rdfs:domain cpm:CorruptionEvent ;
+    rdfs:range cpm:ProjectActor .
+
+cpm:hasActorRole a owl:ObjectProperty ;
+    rdfs:label "has actor role"@en ;
+    skos:definition "Links an actor or actor-bearing entity to a role played in a project or corruption event."@en ;
+    rdfs:range cpm:ActorRole .
+
+cpm:occursInProject a owl:ObjectProperty ;
+    rdfs:label "occurs in project"@en ;
+    skos:definition "Links an event, act, or case element to the project context in which it occurs."@en ;
+    rdfs:range cpm:Project .
+
+cpm:occursInPhase a owl:ObjectProperty ;
+    rdfs:label "occurs in phase"@en ;
+    skos:definition "Links an event, act, indicator, or pattern to a project lifecycle phase."@en ;
+    rdfs:range cpm:ProjectPhase .
+
+cpm:occursInContractStage a owl:ObjectProperty ;
+    rdfs:label "occurs in contract stage"@en ;
+    skos:definition "Links an event, act, indicator, or pattern to a contractual or procurement stage."@en ;
+    rdfs:range cpm:ContractStage .
+
+cpm:hasCorruptAct a owl:ObjectProperty ;
+    rdfs:label "has corrupt act"@en ;
+    skos:definition "Links a corruption event to one or more corrupt acts."@en ;
+    rdfs:domain cpm:CorruptionEvent ;
+    rdfs:range cpm:CorruptAct .
+
+cpm:hasCause a owl:ObjectProperty ;
+    rdfs:label "has cause"@en ;
+    skos:definition "Links an event or construct to a causal condition."@en ;
+    rdfs:range cpm:Cause .
+
+cpm:hasVulnerability a owl:ObjectProperty ;
+    rdfs:label "has vulnerability"@en ;
+    skos:definition "Links an event or construct to a vulnerability that can be exploited."@en ;
+    rdfs:range cpm:Vulnerability .
+
+cpm:hasRiskFactor a owl:ObjectProperty ;
+    rdfs:label "has risk factor"@en ;
+    skos:definition "Links an event, phase, stage, control, or indicator to an associated corruption risk factor."@en ;
+    rdfs:range cpm:RiskFactor .
+
+cpm:hasRedFlag a owl:ObjectProperty ;
+    rdfs:label "has red flag"@en ;
+    skos:definition "Links an event, act, phase, stage, or case to a warning sign or analytic red flag."@en ;
+    rdfs:range cpm:RedFlag .
+
+cpm:hasImpact a owl:ObjectProperty ;
+    rdfs:label "has impact"@en ;
+    skos:definition "Links an event, act, phase, or stage to a resulting impact."@en ;
+    rdfs:range cpm:Impact .
+
+cpm:isMitigatedBy a owl:ObjectProperty ;
+    rdfs:label "is mitigated by"@en ;
+    skos:definition "Links a risk-bearing construct to a control that can mitigate it."@en ;
+    rdfs:range cpm:AntiCorruptionControl .
+
+cpm:isDetectedBy a owl:ObjectProperty ;
+    rdfs:label "is detected by"@en ;
+    skos:definition "Links a corruption-related construct to a control or mechanism that can detect it."@en ;
+    rdfs:range cpm:AntiCorruptionControl .
+
+cpm:isPreventedBy a owl:ObjectProperty ;
+    rdfs:label "is prevented by"@en ;
+    skos:definition "Links a corruption-related construct to a control designed to prevent it."@en ;
+    rdfs:range cpm:AntiCorruptionControl .
+
+cpm:isEnabledBy a owl:ObjectProperty ;
+    rdfs:label "is enabled by"@en ;
+    skos:definition "Links a corruption-related construct to a condition that enables or amplifies it."@en ;
+    rdfs:range cpm:RiskFactor .
+
+cpm:isConstrainedBy a owl:ObjectProperty ;
+    rdfs:label "is constrained by"@en ;
+    skos:definition "Links a construct to a governance or resource constraint that shapes its execution or effectiveness."@en ;
+    rdfs:range cpm:Barrier .
+
+cpm:hasBarrier a owl:ObjectProperty ;
+    rdfs:label "has barrier"@en ;
+    skos:definition "Links a control or governance arrangement to a barrier affecting implementation or effectiveness."@en ;
+    rdfs:range cpm:Barrier .
+
+cpm:hasEvidence a owl:ObjectProperty ;
+    rdfs:label "has evidence"@en ;
+    skos:definition "Links an event, case, or analytic finding to evidentiary material."@en ;
+    rdfs:range cpm:Evidence .
+
+cpm:hasIndicator a owl:ObjectProperty ;
+    rdfs:label "has indicator"@en ;
+    skos:definition "Links a risk, case, or construct to an indicator used for interpretation or monitoring."@en ;
+    rdfs:range cpm:Indicator .
+
+cpm:hasControlObjective a owl:ObjectProperty ;
+    rdfs:label "has control objective"@en ;
+    skos:definition "Links a control to one or more control objectives."@en ;
+    rdfs:range cpm:ControlObjective .
+
+cpm:governedBy a owl:ObjectProperty ;
+    rdfs:label "governed by"@en ;
+    skos:definition "Links a project, process, or control to a governance instrument."@en ;
+    rdfs:range cpm:GovernanceInstrument .
+
+cpm:resultsInSanction a owl:ObjectProperty ;
+    rdfs:label "results in sanction"@en ;
+    skos:definition "Links an event, response, or control to a sanction."@en ;
+    rdfs:range cpm:Sanction .
+
+cpm:targetsAssetOrResource a owl:ObjectProperty ;
+    rdfs:label "targets asset or resource"@en ;
+    skos:definition "Links a corrupt act or event to an asset or resource it seeks to capture, manipulate, or divert."@en ;
+    rdfs:range cpm:AssetOrResource .
+
+cpm:exploitsDecisionPoint a owl:ObjectProperty ;
+    rdfs:label "exploits decision point"@en ;
+    skos:definition "Links a corrupt act or event to a decision point that is exploited."@en ;
+    rdfs:range cpm:DecisionPoint .
+
+cpm:affectsStakeholder a owl:ObjectProperty ;
+    rdfs:label "affects stakeholder"@en ;
+    skos:definition "Links an event or impact to an affected stakeholder."@en ;
+    rdfs:range cpm:ProjectActor .
+
+cpm:relatedToProcurementMethod a owl:ObjectProperty ;
+    rdfs:label "related to procurement method"@en ;
+    skos:definition "Links a construct to a procurement method that is relevant to the analysis."@en ;
+    rdfs:range cpm:ProcurementMethod .
+
+cpm:documentedInCaseStudy a owl:ObjectProperty ;
+    rdfs:label "documented in case study"@en ;
+    skos:definition "Links an event or construct to a case study in which it is documented."@en ;
+    rdfs:range cpm:CaseStudy .
+
+cpm:hasReportingMechanism a owl:ObjectProperty ;
+    rdfs:label "has reporting mechanism"@en ;
+    skos:definition "Links a control, project, or case to a reporting mechanism."@en ;
+    rdfs:range cpm:ReportingMechanism .
+
+cpm:precedesPhase a owl:ObjectProperty ;
+    rdfs:label "precedes phase"@en ;
+    skos:definition "Expresses lifecycle sequencing between phases when represented in a project-specific or metamodel context."@en ;
+    rdfs:range cpm:ProjectPhase .
+
+cpm:precedesContractStage a owl:ObjectProperty ;
+    rdfs:label "precedes contract stage"@en ;
+    skos:definition "Expresses contractual sequencing between stages when represented in a project-specific or metamodel context."@en ;
+    rdfs:range cpm:ContractStage .
+
+cpm:riskScore a owl:DatatypeProperty ;
+    rdfs:label "risk score"@en ;
+    skos:definition "A composite risk score, documented in this repository as a decimal value from 0 to 100."@en ;
+    rdfs:range xsd:decimal .
+
+cpm:likelihoodScore a owl:DatatypeProperty ;
+    rdfs:label "likelihood score"@en ;
+    skos:definition "A likelihood score, documented in this repository as a decimal value from 0 to 1."@en ;
+    rdfs:range xsd:decimal .
+
+cpm:impactScore a owl:DatatypeProperty ;
+    rdfs:label "impact score"@en ;
+    skos:definition "An impact score, documented in this repository as a decimal value from 0 to 1."@en ;
+    rdfs:range xsd:decimal .
+
+cpm:confidenceScore a owl:DatatypeProperty ;
+    rdfs:label "confidence score"@en ;
+    skos:definition "A confidence score, documented in this repository as a decimal value from 0 to 1."@en ;
+    rdfs:range xsd:decimal .
+
+cpm:monetaryValue a owl:DatatypeProperty ;
+    rdfs:label "monetary value"@en ;
+    skos:definition "A numeric monetary value associated with an event, project, impact, contract element, or asset."@en ;
+    rdfs:range xsd:decimal .
+
+cpm:eventDate a owl:DatatypeProperty ;
+    rdfs:label "event date"@en ;
+    skos:definition "The date on which a corruption event or related event element occurred or is deemed to have occurred."@en ;
+    rdfs:range xsd:date .
+
+cpm:detectionDate a owl:DatatypeProperty ;
+    rdfs:label "detection date"@en ;
+    skos:definition "The date on which a corruption event, red flag, or issue was detected or documented."@en ;
+    rdfs:range xsd:date .
+
+cpm:description a owl:DatatypeProperty ;
+    rdfs:label "description"@en ;
+    skos:definition "A textual description of a construct, case, event, or control implementation."@en ;
+    rdfs:range xsd:string .
+
+cpm:sourceReference a owl:DatatypeProperty ;
+    rdfs:label "source reference"@en ;
+    skos:definition "A textual citation, identifier, or provenance pointer describing where information came from."@en ;
+    rdfs:range xsd:string .
+
+cpm:jurisdictionName a owl:DatatypeProperty ;
+    rdfs:label "jurisdiction name"@en ;
+    skos:definition "The jurisdiction name associated with a project, case, or governance context."@en ;
+    rdfs:range xsd:string .
+
+cpm:projectValue a owl:DatatypeProperty ;
+    rdfs:label "project value"@en ;
+    skos:definition "The estimated or contracted total value of a project."@en ;
+    rdfs:range xsd:decimal .
+
+cpm:projectStartDate a owl:DatatypeProperty ;
+    rdfs:label "project start date"@en ;
+    skos:definition "The planned or actual project start date."@en ;
+    rdfs:range xsd:date .
+
+cpm:projectEndDate a owl:DatatypeProperty ;
+    rdfs:label "project end date"@en ;
+    skos:definition "The planned or actual project end date."@en ;
+    rdfs:range xsd:date .
+
+cpm:caseName a owl:DatatypeProperty ;
+    rdfs:label "case name"@en ;
+    skos:definition "The case name or title associated with a case study."@en ;
+    rdfs:range xsd:string .
+

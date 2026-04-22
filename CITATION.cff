@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+title: corruptpm-ontology
+message: "If you use this ontology, please cite the project using this metadata."
+type: dataset
+authors:
+  - name: "corruptpm-ontology contributors"
+version: 0.1.0
+date-released: 2026-04-22
+license: Apache-2.0
+abstract: >
+  A modular ontology, validation stack, and Python toolkit for modelling corruption
+  in project management across project lifecycle phases, procurement and contract
+  stages, actors, risks, controls, impacts, and synthetic case studies.
+

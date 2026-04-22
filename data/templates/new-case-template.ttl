@@ -1,0 +1,49 @@
+@prefix cpm: <https://w3id.org/corruptpm/> .
+@prefix ex: <https://w3id.org/corruptpm/examples/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Replace placeholder IRIs, labels, and descriptions.
+# Keep synthetic examples explicitly marked as synthetic unless you have verified citations and maintainers approve a real case.
+
+ex:synthetic-case-template a cpm:SyntheticCaseStudy ;
+    rdfs:label "Synthetic case template"@en ;
+    cpm:caseName "Synthetic Case Template" ;
+    cpm:description "Replace with a clear statement describing the synthetic case and noting that it is not a real allegation." ;
+    cpm:sourceReference "Synthetic template placeholder." ;
+    skos:scopeNote "Synthetic example only."@en .
+
+ex:project-template a cpm:Project ;
+    rdfs:label "Project template"@en ;
+    cpm:description "Replace with project description." ;
+    cpm:projectValue "0.00"^^xsd:decimal ;
+    cpm:projectStartDate "2026-01-01"^^xsd:date ;
+    cpm:projectEndDate "2026-12-31"^^xsd:date .
+
+ex:event-template a cpm:CorruptionEvent ;
+    rdfs:label "Corruption event template"@en ;
+    cpm:description "Replace with event description." ;
+    cpm:occursInProject ex:project-template ;
+    cpm:occursInPhase ex:phase-template ;
+    cpm:occursInContractStage ex:stage-template ;
+    cpm:hasCorruptAct ex:act-template ;
+    cpm:involvesActor ex:actor-template ;
+    cpm:hasImpact ex:impact-template ;
+    cpm:hasRedFlag ex:red-flag-template ;
+    cpm:hasIndicator ex:indicator-template ;
+    cpm:documentedInCaseStudy ex:synthetic-case-template ;
+    cpm:riskScore "50.0"^^xsd:decimal ;
+    cpm:likelihoodScore "0.50"^^xsd:decimal ;
+    cpm:impactScore "0.50"^^xsd:decimal ;
+    cpm:eventDate "2026-01-15"^^xsd:date ;
+    cpm:detectionDate "2026-01-20"^^xsd:date .
+
+ex:phase-template a cpm:ProcurementPhase ; rdfs:label "Phase template"@en .
+ex:stage-template a cpm:BidEvaluationStage ; rdfs:label "Stage template"@en .
+ex:act-template a cpm:BidRigging ; rdfs:label "Act template"@en .
+ex:actor-template a cpm:ProjectManager ; rdfs:label "Actor template"@en .
+ex:impact-template a cpm:CostOverrun ; rdfs:label "Impact template"@en .
+ex:red-flag-template a cpm:SingleBidder ; rdfs:label "Red flag template"@en ; cpm:confidenceScore "0.80"^^xsd:decimal .
+ex:indicator-template a cpm:BidConcentrationIndicator ; rdfs:label "Indicator template"@en ; cpm:confidenceScore "0.80"^^xsd:decimal .
+

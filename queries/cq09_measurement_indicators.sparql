@@ -1,0 +1,16 @@
+PREFIX cpm: <https://w3id.org/corruptpm/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?indicator ?indicatorLabel
+WHERE {
+  ?indicator rdfs:subClassOf cpm:Indicator ;
+             rdfs:subClassOf ?restriction .
+  FILTER (?indicator != cpm:Indicator)
+  ?restriction a owl:Restriction ;
+               owl:onProperty cpm:hasRiskFactor ;
+               owl:someValuesFrom cpm:InadequateCompetition .
+  OPTIONAL { ?indicator rdfs:label ?indicatorLabel }
+}
+ORDER BY ?indicatorLabel
+

@@ -1,0 +1,119 @@
+@prefix cpm: <https://w3id.org/corruptpm/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+cpm:corruptpm-causes-vulnerabilities a owl:Ontology ;
+    rdfs:label "corruptpm causes and vulnerabilities module"@en ;
+    owl:imports <corruptpm-core.ttl> .
+
+cpm:WeakGovernance a owl:Class ;
+    rdfs:subClassOf cpm:Cause ;
+    rdfs:label "Weak governance"@en ;
+    skos:definition "Weak governance arrangements that fail to define clear accountability, controls, or oversight."@en .
+
+cpm:LackOfTransparency a owl:Class ;
+    rdfs:subClassOf cpm:Cause ;
+    rdfs:label "Lack of transparency"@en ;
+    skos:definition "Insufficient public, institutional, or stakeholder visibility over project decisions, data, or transactions."@en .
+
+cpm:WeakAccountability a owl:Class ;
+    rdfs:subClassOf cpm:Cause ;
+    rdfs:label "Weak accountability"@en ;
+    skos:definition "Limited ability to hold actors answerable for project decisions, misconduct, or poor performance."@en .
+
+cpm:DiscretionaryDecisionMaking a owl:Class ;
+    rdfs:subClassOf cpm:Vulnerability ;
+    rdfs:label "Discretionary decision making"@en ;
+    skos:definition "Decision-making arrangements with high discretion and weak review, documentation, or challenge."@en .
+
+cpm:MonopolyPower a owl:Class ;
+    rdfs:subClassOf cpm:Vulnerability ;
+    rdfs:label "Monopoly power"@en ;
+    skos:definition "Market or institutional concentration that limits competition and increases capture risk."@en .
+
+cpm:InformationAsymmetry a owl:Class ;
+    rdfs:subClassOf cpm:Vulnerability ;
+    rdfs:label "Information asymmetry"@en ;
+    skos:definition "Uneven access to information across actors, creating opportunities for manipulation or concealment."@en .
+
+cpm:PoorRecordKeeping a owl:Class ;
+    rdfs:subClassOf cpm:Vulnerability ;
+    rdfs:label "Poor record keeping"@en ;
+    skos:definition "Insufficient record quality, completeness, or retention that weakens traceability and oversight."@en .
+
+cpm:WeakAuditCapacity a owl:Class ;
+    rdfs:subClassOf cpm:Vulnerability ;
+    rdfs:label "Weak audit capacity"@en ;
+    skos:definition "Insufficient audit capability, access, independence, tools, or resources."@en .
+
+cpm:PoliticalPatronage a owl:Class ;
+    rdfs:subClassOf cpm:Cause ;
+    rdfs:label "Political patronage"@en ;
+    skos:definition "Political influence or networks that distort project decisions, appointments, or awards for favour rather than merit."@en .
+
+cpm:LowDetectionProbability a owl:Class ;
+    rdfs:subClassOf cpm:Vulnerability ;
+    rdfs:label "Low detection probability"@en ;
+    skos:definition "A condition in which corrupt acts are unlikely to be observed, flagged, or investigated."@en .
+
+cpm:WeakSanctions a owl:Class ;
+    rdfs:subClassOf cpm:Cause ;
+    rdfs:label "Weak sanctions"@en ;
+    skos:definition "Weak or inconsistently applied sanctions that reduce deterrence."@en .
+
+cpm:CulturalNormalization a owl:Class ;
+    rdfs:subClassOf cpm:Cause ;
+    rdfs:label "Cultural normalization"@en ;
+    skos:definition "A cultural context in which corrupt practices become normalised, tolerated, or rationalised."@en .
+
+cpm:ComplexSupplyChain a owl:Class ;
+    rdfs:subClassOf cpm:Vulnerability ;
+    rdfs:label "Complex supply chain"@en ;
+    skos:definition "Supply chain complexity that obscures accountability, pricing, beneficial ownership, or delivery quality."@en .
+
+cpm:FragmentedProjectDelivery a owl:Class ;
+    rdfs:subClassOf cpm:Vulnerability ;
+    rdfs:label "Fragmented project delivery"@en ;
+    skos:definition "Fragmented delivery arrangements that diffuse accountability across many interfaces."@en .
+
+cpm:OpaqueProcurement a owl:Class ;
+    rdfs:subClassOf cpm:Vulnerability ;
+    rdfs:label "Opaque procurement"@en ;
+    skos:definition "Procurement conditions with weak disclosure, traceability, auditability, or market visibility."@en .
+
+cpm:EmergencyProcurement a owl:Class ;
+    rdfs:subClassOf cpm:Vulnerability ;
+    rdfs:label "Emergency procurement"@en ;
+    skos:definition "Urgent procurement conditions that compress review, competition, or documentation."@en .
+
+cpm:TimePressure a owl:Class ;
+    rdfs:subClassOf cpm:Cause ;
+    rdfs:label "Time pressure"@en ;
+    skos:definition "Schedule urgency that incentivises shortcuts, weak review, or emergency decision-making."@en .
+
+cpm:BudgetPressure a owl:Class ;
+    rdfs:subClassOf cpm:Cause ;
+    rdfs:label "Budget pressure"@en ;
+    skos:definition "Budget strain or fiscal pressure that distorts project decisions or weakens assurance."@en .
+
+cpm:InadequateCompetition a owl:Class ;
+    rdfs:subClassOf cpm:Vulnerability ;
+    rdfs:label "Inadequate competition"@en ;
+    skos:definition "Low or distorted competition that increases risk of collusion, capture, or inflated pricing."@en .
+
+cpm:PoorContractManagement a owl:Class ;
+    rdfs:subClassOf cpm:Vulnerability ;
+    rdfs:label "Poor contract management"@en ;
+    skos:definition "Weak contract administration, monitoring, or documentation that creates exploitable gaps."@en .
+
+cpm:PoorStakeholderOversight a owl:Class ;
+    rdfs:subClassOf cpm:Vulnerability ;
+    rdfs:label "Poor stakeholder oversight"@en ;
+    skos:definition "Weak involvement of funders, communities, users, or oversight actors in project scrutiny."@en .
+
+cpm:InadequateDigitalTraceability a owl:Class ;
+    rdfs:subClassOf cpm:Vulnerability ;
+    rdfs:label "Inadequate digital traceability"@en ;
+    skos:definition "Insufficient digital records, interoperability, or transaction traceability for reliable anti-corruption analytics."@en .
+

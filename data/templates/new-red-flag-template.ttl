@@ -1,0 +1,15 @@
+@prefix cpm: <https://w3id.org/corruptpm/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+# Copy this template into an ontology module or extension file and replace placeholders.
+
+cpm:NewRedFlagTemplate a owl:Class ;
+    rdfs:subClassOf
+        cpm:RedFlag,
+        [ a owl:Restriction ; owl:onProperty cpm:hasRiskFactor ; owl:someValuesFrom cpm:InadequateCompetition ] ;
+    rdfs:label "New red flag template"@en ;
+    skos:definition "Replace with a concise definition of the warning sign or anomaly."@en ;
+    skos:scopeNote "Describe when the signal is meaningful, what it may indicate, and what it does not prove."@en .
+

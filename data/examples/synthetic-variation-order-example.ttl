@@ -1,0 +1,142 @@
+@prefix cpm: <https://w3id.org/corruptpm/> .
+@prefix ex: <https://w3id.org/corruptpm/examples/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:synthetic-inspection-fraud-case a cpm:SyntheticCaseStudy ;
+    rdfs:label "Synthetic inspection fraud case 001"@en ;
+    cpm:caseName "Synthetic Inspection Fraud Case 001" ;
+    cpm:description "Synthetic case study illustrating inspection fraud and false certification during payment certification. This is not a real allegation." ;
+    cpm:sourceReference "Synthetic example created for repository validation and demonstration." ;
+    skos:scopeNote "Synthetic example only. Do not treat as a real-world allegation."@en .
+
+ex:project-hospital-expansion-001 a cpm:Project ;
+    rdfs:label "Synthetic hospital expansion project"@en ;
+    cpm:description "Synthetic AEC project used to demonstrate inspection fraud and certification risk." ;
+    cpm:projectValue "230000000.00"^^xsd:decimal ;
+    cpm:projectStartDate "2025-07-01"^^xsd:date ;
+    cpm:projectEndDate "2028-03-31"^^xsd:date .
+
+ex:phase-inspection-001 a cpm:InspectionPhase ;
+    rdfs:label "Inspection phase instance for case 003"@en .
+
+ex:stage-payment-certification-001 a cpm:PaymentCertificationStage ;
+    rdfs:label "Payment certification stage instance for case 003"@en .
+
+ex:decision-payment-certification-001 a cpm:PaymentCertificationDecisionPoint ;
+    rdfs:label "Payment certification decision point for case 003"@en .
+
+ex:asset-inspection-report-001 a cpm:InspectionReport ;
+    rdfs:label "Inspection report package for case 003"@en .
+
+ex:role-inspector-001 a cpm:OversightRole ;
+    rdfs:label "Inspection oversight role"@en .
+
+ex:role-owner-001 a cpm:DecisionAuthorityRole ;
+    rdfs:label "Project owner certification role"@en .
+
+ex:role-contractor-003 a cpm:DeliveryRole ;
+    rdfs:label "Construction delivery role for case 003"@en .
+
+ex:actor-inspector-001 a cpm:Inspector ;
+    rdfs:label "Synthetic quality inspector"@en ;
+    cpm:hasActorRole ex:role-inspector-001 .
+
+ex:actor-project-owner-001 a cpm:ProjectOwner ;
+    rdfs:label "Synthetic hospital authority owner"@en ;
+    cpm:hasActorRole ex:role-owner-001 .
+
+ex:actor-main-contractor-003 a cpm:MainContractor ;
+    rdfs:label "Synthetic main contractor Delta"@en ;
+    cpm:hasActorRole ex:role-contractor-003 .
+
+ex:actor-supervision-consultant-002 a cpm:SupervisionConsultant ;
+    rdfs:label "Synthetic supervision consultant for case 003"@en .
+
+ex:actor-community-stakeholder-001 a cpm:CommunityStakeholder ;
+    rdfs:label "Synthetic patient and community observer group"@en .
+
+ex:act-inspection-fraud-001 a cpm:QualityInspectionFraud ;
+    rdfs:label "Synthetic quality inspection fraud act"@en ;
+    cpm:description "Synthetic manipulation of inspection findings despite visible defects." ;
+    cpm:targetsAssetOrResource ex:asset-inspection-report-001 ;
+    cpm:exploitsDecisionPoint ex:decision-payment-certification-001 .
+
+ex:act-false-certification-001 a cpm:FalseCertification ;
+    rdfs:label "Synthetic false certification act"@en ;
+    cpm:description "Synthetic issuance of compliant certification despite unresolved quality defects." .
+
+ex:vulnerability-low-detection-001 a cpm:LowDetectionProbability ;
+    rdfs:label "Low detection probability vulnerability instance"@en .
+
+ex:cause-weak-accountability-001 a cpm:WeakAccountability ;
+    rdfs:label "Weak accountability cause instance"@en .
+
+ex:redflag-delayed-inspection-report-001 a cpm:DelayedInspectionReports ;
+    rdfs:label "Delayed inspection reports instance"@en ;
+    cpm:description "Synthetic delay between site inspection and report finalisation." ;
+    cpm:confidenceScore "0.90"^^xsd:decimal .
+
+ex:redflag-quality-defects-001 a cpm:QualityDefectsDespiteCertification ;
+    rdfs:label "Quality defects despite certification instance"@en ;
+    cpm:description "Synthetic visible defects remain after formal certification." ;
+    cpm:confidenceScore "0.95"^^xsd:decimal .
+
+ex:indicator-inspection-lag-001 a cpm:InspectionLagIndicator ;
+    rdfs:label "Inspection lag indicator instance"@en ;
+    cpm:description "Synthetic indicator showing prolonged lag between inspection events and filed reports." ;
+    cpm:confidenceScore "0.89"^^xsd:decimal .
+
+ex:control-independent-technical-audit-001 a cpm:IndependentTechnicalAudit ;
+    rdfs:label "Synthetic independent technical audit deployment"@en ;
+    cpm:description "Synthetic independent review of certified work quality and inspection evidence." .
+
+ex:control-real-time-monitoring-001 a cpm:RealTimeProjectMonitoring ;
+    rdfs:label "Synthetic real-time project monitoring deployment"@en ;
+    cpm:description "Synthetic dashboard and field reporting workflow for real-time quality monitoring." .
+
+ex:impact-safety-risk-001 a cpm:SafetyRisk ;
+    rdfs:label "Safety risk impact instance"@en .
+
+ex:impact-poor-quality-002 a cpm:PoorQuality ;
+    rdfs:label "Poor quality impact instance for case 003"@en .
+
+ex:impact-underperformance-001 a cpm:InfrastructureUnderperformance ;
+    rdfs:label "Infrastructure underperformance impact instance"@en .
+
+ex:evidence-inspection-photos-001 a cpm:DocumentaryEvidence ;
+    rdfs:label "Synthetic inspection photo set"@en ;
+    cpm:description "Synthetic documentary evidence showing visible defects after certification." ;
+    cpm:sourceReference "Synthetic evidence created for ontology examples." .
+
+ex:evidence-monitoring-analysis-001 a cpm:AnalyticEvidence ;
+    rdfs:label "Synthetic monitoring anomaly analysis"@en ;
+    cpm:description "Synthetic analytics showing delayed reports and unresolved defects." ;
+    cpm:sourceReference "Synthetic analytics created for ontology examples." .
+
+ex:event-inspection-fraud-001 a cpm:CorruptionEvent ;
+    rdfs:label "Synthetic inspection fraud event 001"@en ;
+    cpm:description "Synthetic corruption event capturing quality inspection fraud and false certification." ;
+    cpm:occursInProject ex:project-hospital-expansion-001 ;
+    cpm:occursInPhase ex:phase-inspection-001 ;
+    cpm:occursInContractStage ex:stage-payment-certification-001 ;
+    cpm:hasCorruptAct ex:act-inspection-fraud-001, ex:act-false-certification-001 ;
+    cpm:involvesActor ex:actor-inspector-001, ex:actor-project-owner-001, ex:actor-main-contractor-003, ex:actor-supervision-consultant-002 ;
+    cpm:hasCause ex:cause-weak-accountability-001 ;
+    cpm:hasVulnerability ex:vulnerability-low-detection-001 ;
+    cpm:hasImpact ex:impact-safety-risk-001, ex:impact-poor-quality-002, ex:impact-underperformance-001 ;
+    cpm:hasRedFlag ex:redflag-delayed-inspection-report-001, ex:redflag-quality-defects-001 ;
+    cpm:hasIndicator ex:indicator-inspection-lag-001 ;
+    cpm:isMitigatedBy ex:control-independent-technical-audit-001, ex:control-real-time-monitoring-001 ;
+    cpm:isDetectedBy ex:control-independent-technical-audit-001, ex:control-real-time-monitoring-001 ;
+    cpm:hasEvidence ex:evidence-inspection-photos-001, ex:evidence-monitoring-analysis-001 ;
+    cpm:affectsStakeholder ex:actor-community-stakeholder-001 ;
+    cpm:documentedInCaseStudy ex:synthetic-inspection-fraud-case ;
+    cpm:riskScore "88.2"^^xsd:decimal ;
+    cpm:likelihoodScore "0.76"^^xsd:decimal ;
+    cpm:impactScore "0.93"^^xsd:decimal ;
+    cpm:eventDate "2026-01-21"^^xsd:date ;
+    cpm:detectionDate "2026-01-30"^^xsd:date ;
+    cpm:sourceReference "Synthetic case event for repository validation." .
+

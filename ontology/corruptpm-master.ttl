@@ -1,0 +1,21 @@
+@prefix cpm: <https://w3id.org/corruptpm/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+cpm:corruptpm-master a owl:Ontology ;
+    rdfs:label "corruptpm master ontology"@en ;
+    dcterms:title "Corruption in Project Management Ontology"@en ;
+    dcterms:description "Master ontology file importing the modular corruptpm ontology components."@en ;
+    owl:versionInfo "0.1.0" ;
+    owl:imports
+        <corruptpm-core.ttl>,
+        <corruptpm-lifecycle.ttl>,
+        <corruptpm-actors.ttl>,
+        <corruptpm-corrupt-acts.ttl>,
+        <corruptpm-causes-vulnerabilities.ttl>,
+        <corruptpm-impacts.ttl>,
+        <corruptpm-controls.ttl>,
+        <corruptpm-indicators.ttl>,
+        <corruptpm-contractual-cycle.ttl>,
+        <corruptpm-cases.ttl> .
