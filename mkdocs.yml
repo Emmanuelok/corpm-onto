@@ -13,4 +13,5 @@ nav:
   - Extension Guide: extension-guide.md
   - Examples: examples.md
   - API: api.md
+  - Deployment: deployment.md
   - Construct Catalog: construct-catalog.md
