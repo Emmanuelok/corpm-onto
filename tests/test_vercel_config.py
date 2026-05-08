@@ -1,4 +1,5 @@
 import json
+import tomllib
 from pathlib import Path
 
 
@@ -11,3 +12,10 @@ def test_vercel_config_uses_static_mkdocs_build() -> None:
     assert config["framework"] is None
     assert "mkdocs build --strict" in config["buildCommand"]
     assert config["outputDirectory"] == "site"
+
+
+def test_pyproject_declares_vercel_python_fallback_entrypoint() -> None:
+    config = tomllib.loads((ROOT / "pyproject.toml").read_text(encoding="utf-8"))
+
+    assert config["tool"]["vercel"]["entrypoint"] == "app.py"
+    assert (ROOT / "app.py").is_file()
