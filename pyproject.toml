@@ -38,3 +38,6 @@ include = ["corruptpm*"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 
+[tool.vercel]
+entrypoint = "app.py"
+
