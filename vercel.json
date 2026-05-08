@@ -1,0 +1,5 @@
+{
+  "installCommand": "python -m pip install --upgrade pip && python -m pip install -e '.[docs]'",
+  "buildCommand": "python -m mkdocs build --strict --site-dir site",
+  "outputDirectory": "site"
+}

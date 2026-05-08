@@ -148,6 +148,8 @@ To add a new construct manually:
 
 Project documentation lives in [docs](docs) and covers architecture, lifecycle modelling, competency questions, extension workflows, validation, and API usage.
 
+The documentation site is deployable on Vercel with the checked-in [vercel.json](vercel.json). Deployment details and required build settings are documented in [docs/deployment.md](docs/deployment.md).
+
 ## Citation
 
 Use the metadata in [CITATION.cff](CITATION.cff). A minimal citation format is also described there.
