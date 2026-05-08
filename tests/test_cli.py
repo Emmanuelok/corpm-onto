@@ -1,4 +1,6 @@
 import runpy
+import subprocess
+import sys
 
 from click.testing import CliRunner
 
@@ -20,3 +22,14 @@ def test_construct_catalog_generation_script_works(monkeypatch) -> None:
     assert catalog_path.exists()
     assert "# Construct Catalog" in catalog_path.read_text(encoding="utf-8")
 
+
+def test_validate_all_script_works_when_executed_directly() -> None:
+    result = subprocess.run(
+        [sys.executable, str(ROOT / "scripts" / "validate_all.py")],
+        cwd=ROOT,
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    assert result.returncode == 0, result.stdout + result.stderr
+    assert "Conforms: True" in result.stdout
